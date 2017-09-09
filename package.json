@@ -1,0 +1,38 @@
+{
+  "name": "react-native-awesome-alerts",
+  "version": "1.0.1",
+  "description": "Awesome alerts for React Native.",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-native start",
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabhbhatia/react-native-awesome-alerts.git"
+  },
+  "keywords": [
+    "react-native",
+    "alerts",
+    "dialog",
+    "iOS",
+    "android"
+  ],
+  "author": "rishabhbhatia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishabhbhatia/react-native-awesome-alerts/issues"
+  },
+  "homepage": "https://github.com/rishabhbhatia/react-native-awesome-alerts#readme",
+  "dependencies": {
+    "prop-types": "^15.5.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1"
+  }
+}
