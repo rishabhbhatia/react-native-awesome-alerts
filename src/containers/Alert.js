@@ -34,15 +34,15 @@ export default class Alert extends Component {
     };
 
     if(show)
-      this._springShow();
+      this._springShow(true);
   };
 
   componentDidMount() {
     HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
   };
 
-  _springShow = () => {
-    this._toggleAlert();
+  _springShow = (fromConstructor) => {
+    this._toggleAlert(fromConstructor);
     Animated.spring(
       this.springValue,
       {
@@ -66,10 +66,13 @@ export default class Alert extends Component {
     }, 70);
   };
 
-  _toggleAlert = () => {
-    this.setState({
-      showSelf: !this.state.showSelf
-    });
+  _toggleAlert = (fromConstructor) => {
+    if(fromConstructor)
+      this.state = {showSelf: true};
+    else
+      this.setState({
+        showSelf: !this.state.showSelf
+      });
   };
 
   _handleHwBackEvent = () => {
