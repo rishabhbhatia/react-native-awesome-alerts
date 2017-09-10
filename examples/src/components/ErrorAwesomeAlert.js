@@ -6,15 +6,15 @@ import config from '../config';
 
 import styles from './styles';
 
-export default class BasicAwesomeAlert extends Component {
+export default class ErrorAwesomeAlert extends Component {
 
   render() {
     const {onPress} = this.props;
 
     return (
       <View style={styles.container}>
-        <Text>I'm BasicAwesomeAlert</Text>
-        <TouchableOpacity onPress={() => onPress(config.type.basic)}>
+        <Text>I'm ErrorAwesomeAlert</Text>
+        <TouchableOpacity onPress={() => onPress(config.type.error)}>
           <View style={styles.button}>
             <Text style={styles.text}>Try me!</Text>
           </View>
@@ -24,6 +24,6 @@ export default class BasicAwesomeAlert extends Component {
   };
 };
 
-BasicAwesomeAlert.propTypes = {
+ErrorAwesomeAlert.propTypes = {
   onPress: PropTypes.func.isRequired
 };

@@ -18,15 +18,16 @@ const config = {
     "actionButtonFontSize": 13
   },
   "spacing": {
-    "alertContainerPadding": 15,
-    "alertContentPadding": 10,
+    "alertContainerPadding": 10,
+    "alertContentPadding": 5,
     "titlePadding": 5,
     "titlePaddingSides": 15,
     "msgPadding": 5,
     "msgPaddingSides": 10,
     "actionButtonPaddingHorizontal": 10,
     "actionButtonPaddingVertical": 7,
-    "actionButtonMargin": 10,
+    "actionButtonMargin": 5,
+    "actionButtonMarginTop": 5
   },
   "types": {
     "progress": "Progress",

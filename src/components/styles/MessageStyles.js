@@ -5,9 +5,7 @@ import config from '../../config';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: config.spacing.msgPadding,
-    paddingLeft: config.spacing.msgPaddingSides,
-    paddingRight: config.spacing.msgPaddingSides,
+    paddingTop: config.spacing.msgPadding
   },
   text: {
     color: config.colors.msg,

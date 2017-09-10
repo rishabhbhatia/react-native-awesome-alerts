@@ -2,11 +2,11 @@
   <img alt="react-native-awesome-alerts" src="http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1504947704/awesome-alerts/react-native-awesome-alerts.png">
 </p>
 
-# React Native Awesome Alerts
+# React Native Awesome Alerts [Youtube](https://youtu.be/VIJYKUFpFCU)
 
 ### Demo
 
-![alt text](http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1504950440/awesome-alerts/react-native-awesome-alerts-basic.gif)
+![alt text](http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1505042954/awesome-alerts/v1.0.3/react-native-awesome-alerts.gif)
 
 
 ## Getting Started
@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
 });
 
 ```
+![alt text](http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1504950440/awesome-alerts/react-native-awesome-alerts-basic.gif)
 
 ### Properties
 
