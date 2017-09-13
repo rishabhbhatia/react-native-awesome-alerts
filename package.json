@@ -11,7 +11,9 @@
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": ["<rootDir>/examples/"]
+    "modulePathIgnorePatterns": ["<rootDir>/examples/"],
+    "testPathIgnorePatterns": ["/props.js"],
+    "timers": "fake"
   },
   "repository": {
     "type": "git",

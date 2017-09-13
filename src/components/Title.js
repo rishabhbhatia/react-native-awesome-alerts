@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 
+import PropTypes from 'prop-types';
+
 import styles from './styles/TitleStyles';
 
 export default class Title extends Component {
@@ -22,4 +24,8 @@ export default class Title extends Component {
     else
       return null;
   };
+};
+
+Title.propTypes = {
+  title: PropTypes.string
 };

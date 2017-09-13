@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, TouchableOpacity, Text} from 'react-native';
 
+import PropTypes from 'prop-types';
+
 import styles from './styles/ButtonStyles';
 
 export default class Button extends Component {
@@ -30,4 +32,14 @@ export default class Button extends Component {
     else
       return null
   };
+};
+
+Button.propTypes = {
+  show: PropTypes.bool,
+  text: PropTypes.string,
+  backgroundColor: PropTypes.string
+};
+
+Button.defaultProps = {
+  show: false
 };

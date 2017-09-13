@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {ActivityIndicator} from 'react-native';
 
+import PropTypes from 'prop-types';
+
 export default class Progress extends Component {
 
   _renderProgress = () => {
@@ -17,4 +19,8 @@ export default class Progress extends Component {
     else
       return null;
   };
+};
+
+Progress.propTypes = {
+  showProgress: PropTypes.bool
 };

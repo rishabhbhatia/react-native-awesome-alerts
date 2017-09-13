@@ -7,7 +7,7 @@ import renderer from 'react-test-renderer';
 
 test('renders correctly', () => {
   const tree = renderer.create(
-    <Message />
+    <Message message="I am just a message" />
     ).toJSON();
   expect(tree).toMatchSnapshot();
 });

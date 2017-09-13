@@ -5,9 +5,11 @@ import Alert from '../../src/containers';
 
 import renderer from 'react-test-renderer';
 
+import props from '../props';
+
 test('renders correctly', () => {
   const tree = renderer.create(
-    <Alert />
+    <Alert {...props} />
     ).toJSON();
   expect(tree).toMatchSnapshot();
 });

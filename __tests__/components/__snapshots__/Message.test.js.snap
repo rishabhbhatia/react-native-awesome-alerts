@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `null`;
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "paddingTop": 5,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    disabled={false}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#7b7b7b",
+        "fontSize": 14,
+      }
+    }
+  >
+    I am just a message
+  </Text>
+</View>
+`;
