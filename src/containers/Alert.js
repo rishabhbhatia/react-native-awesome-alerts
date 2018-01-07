@@ -53,17 +53,19 @@ export default class Alert extends Component {
   };
 
   _springHide = () => {
-    Animated.spring(
-      this.springValue,
-      {
-        toValue: 0,
-        tension: 10
-      }
-    ).start();
+    if (this.state.showSelf === true) {
+      Animated.spring(
+        this.springValue,
+        {
+          toValue: 0,
+          tension: 10
+        }
+      ).start();
 
-    setTimeout(() => {
-      this._toggleAlert();
-    }, 70);
+      setTimeout(() => {
+        this._toggleAlert();
+      }, 70);
+    }
   };
 
   _toggleAlert = (fromConstructor) => {
