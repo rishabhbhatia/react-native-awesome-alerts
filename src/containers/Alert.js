@@ -76,8 +76,6 @@ export default class Alert extends Component {
   };
 
   _handleHwBackEvent = () => {
-    const {closeOnHardwareBackPress} = this.props;
-
     if(this.state.showSelf) {
       this._springHide();
       return true;
@@ -139,7 +137,6 @@ export default class Alert extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {show} = nextProps;
-    const {showOld} = this.props;
 
     if(show)
       this._springShow();
