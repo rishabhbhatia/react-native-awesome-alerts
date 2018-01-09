@@ -53,17 +53,19 @@ export default class Alert extends Component {
   };
 
   _springHide = () => {
-    Animated.spring(
-      this.springValue,
-      {
-        toValue: 0,
-        tension: 10
-      }
-    ).start();
+    if (this.state.showSelf === true) {
+      Animated.spring(
+        this.springValue,
+        {
+          toValue: 0,
+          tension: 10
+        }
+      ).start();
 
-    setTimeout(() => {
-      this._toggleAlert();
-    }, 70);
+      setTimeout(() => {
+        this._toggleAlert();
+      }, 70);
+    }
   };
 
   _toggleAlert = (fromConstructor) => {
@@ -76,8 +78,6 @@ export default class Alert extends Component {
   };
 
   _handleHwBackEvent = () => {
-    const {closeOnHardwareBackPress} = this.props;
-
     if(this.state.showSelf) {
       this._springHide();
       return true;
@@ -139,7 +139,6 @@ export default class Alert extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {show} = nextProps;
-    const {showOld} = this.props;
 
     if(show)
       this._springShow();

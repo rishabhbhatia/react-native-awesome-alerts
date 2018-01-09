@@ -1,5 +1,4 @@
-import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import config from '../../config';
 
