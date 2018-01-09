@@ -146,6 +146,11 @@ export default class Alert extends Component {
     else
       this._springHide();
   };
+
+  componentWillUnmount() {
+    HwBackHandler.removeEventListener(HW_BACK_EVENT);
+  }
+
 };
 
 Alert.propTypes = {
