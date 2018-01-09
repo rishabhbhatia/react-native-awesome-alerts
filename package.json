@@ -1,6 +1,6 @@
 {
   "name": "react-native-awesome-alerts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Awesome alerts for React Native.",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": ["<rootDir>/examples/"],
-    "testPathIgnorePatterns": ["/props.js"],
+    "testPathIgnorePatterns": ["/props.js", "<rootDir>/node_modules", "<rootDir>/examples/"],
     "timers": "fake"
   },
   "repository": {
