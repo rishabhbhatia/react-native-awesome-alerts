@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: config.colors.title,
-    fontSize: config.size.title
+    fontSize: config.size.title,
+    fontFamily: config.fonts.fontBold
   }
 });
 
