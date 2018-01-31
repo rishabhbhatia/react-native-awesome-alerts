@@ -8,7 +8,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: config.colors.msg,
-    fontSize: config.size.msg
+    fontSize: config.size.msg,
+    fontFamily:config.fonts.fontRegular
   }
 });
 
