@@ -34,6 +34,11 @@ const config = {
     "warning": "Warning",
     "error": "error",
     "action": "Action",
+  },
+  "fonts" : {
+    "fontLight": "IRANYekanMobileLight",
+    "fontRegular": "IRANYekanMobileRegular",
+    "fontBold": "IRANYekanMobileBold",
   }
 }
 
