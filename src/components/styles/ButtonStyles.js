@@ -11,7 +11,8 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#fff',
-    fontSize: config.size.actionButtonFontSize
+    fontSize: config.size.actionButtonFontSize,
+    fontFamily:config.fonts.fontRegular
   }
 });
 
