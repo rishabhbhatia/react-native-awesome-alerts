@@ -1,40 +1,35 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
+  Text,
   Animated,
   View,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  ActivityIndicator,
   BackAndroid,
   BackHandler
 } from 'react-native';
 
-import {
-  Progress,
-  Title,
-  Message,
-  Button,
-  Overlay
-} from '../components';
-
 import PropTypes from 'prop-types';
-import config from '../config';
+import config from '../../config';
 
-import styles from './styles/AlertStyles';
+import styles from './style';
 
 const HwBackHandler = BackHandler || BackAndroid;
 const HW_BACK_EVENT = 'hardwareBackPress';
 
 export default class Alert extends Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props);
-    const {show} = this.props;
+    const { show } = this.props;
     this.springValue = new Animated.Value(0.3);
 
     this.state = {
       showSelf: false
     };
 
-    if(show)
-      this._springShow(true);
+    if (show) this._springShow(true);
   };
 
   componentDidMount() {
@@ -69,16 +64,12 @@ export default class Alert extends Component {
   };
 
   _toggleAlert = (fromConstructor) => {
-    if(fromConstructor)
-      this.state = {showSelf: true};
-    else
-      this.setState({
-        showSelf: !this.state.showSelf
-      });
+    if (fromConstructor) this.state = { showSelf: true };
+    else this.setState({ showSelf: !this.state.showSelf });
   };
 
   _handleHwBackEvent = () => {
-    if(this.state.showSelf) {
+    if (this.state.showSelf) {
       this._springHide();
       return true;
     }
@@ -86,42 +77,59 @@ export default class Alert extends Component {
     return false;
   };
 
-  _renderAlert = () => {
-    const animation = {
-      transform: [{scale: this.springValue}]
-    };
+  _onTapOutside = () => {
+    const { closeOnTouchOutside } = this.props;
+    if (closeOnTouchOutside) this._springHide();
+  };
 
-    const {showProgress} = this.props;
-    const {title, message} = this.props;
-    const {showCancelButton, cancelText, cancelButtonColor, onCancelPressed} = this.props;
-    const {showConfirmButton, confirmText, confirmButtonColor, onConfirmPressed} = this.props;
+  _renderButton = (data) => {
+    const { text, backgroundColor, onPress } = data;
 
     return (
-      <View style={styles.container}>
-        <Overlay onPress={() => {
-          const {closeOnTouchOutside} = this.props;
-          if(closeOnTouchOutside)
-            this._springHide();
-        }} />
-        <Animated.View style={[styles.alertContainer, animation]}>
+      <TouchableOpacity onPress={onPress}>
+        <View style={[styles.button, { backgroundColor }]}>
+          <Text style={styles.buttonText}>{text}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  _renderAlert = () => {
+    const animation = { transform: [{ scale: this.springValue }] };
+
+    const { showProgress } = this.props;
+    const { title, message } = this.props;
+    const { showCancelButton, cancelText, cancelButtonColor, onCancelPressed } = this.props;
+    const { showConfirmButton, confirmText, confirmButtonColor, onConfirmPressed } = this.props;
+
+    const { alertContainerStyle, overlayStyle, alertStyle, titleStyle, messageStyle } = this.props;
+
+    const cancelButtonData = {
+      text: cancelText,
+      backgroundColor: cancelButtonColor,
+      onPress: onCancelPressed
+    };
+
+    const confirmButtonData = {
+      text: confirmText,
+      backgroundColor: confirmButtonColor,
+      onPress: onConfirmPressed
+    };
+
+    return (
+      <View style={[styles.container, alertContainerStyle]}>
+        <TouchableWithoutFeedback onPress={this._onTapOutside} >
+          <View style={[styles.overlay, overlayStyle]} />
+        </TouchableWithoutFeedback>
+        <Animated.View style={[styles.alertContainer, animation, alertStyle]}>
           <View style={styles.content}>
-            <Progress showProgress={showProgress} />
-            <Title title={title} />
-            <Message message={message} />
+            {showProgress && <ActivityIndicator />}
+            {title && <Text style={[styles.title, titleStyle]}>{title}</Text>}
+            {message && <Text style={[styles.message, messageStyle]}>{message}</Text>}
           </View>
           <View style={styles.action}>
-            <Button
-              text={cancelText}
-              show={showCancelButton}
-              backgroundColor={cancelButtonColor}
-              onPress={onCancelPressed}
-            />
-            <Button
-              text={confirmText}
-              show={showConfirmButton}
-              backgroundColor={confirmButtonColor}
-              onPress={onConfirmPressed}
-            />
+            {showCancelButton && this._renderButton(cancelButtonData)}
+            {showConfirmButton && this._renderButton(confirmButtonData)}
           </View>
         </Animated.View>
       </View>
@@ -129,18 +137,18 @@ export default class Alert extends Component {
   }
 
   render() {
-    const {showSelf} = this.state;
+    const { showSelf } = this.state;
 
-    if(showSelf)
+    if (showSelf)
       return this._renderAlert();
-    else
-      return null;
+
+    return null;
   };
 
   componentWillReceiveProps(nextProps) {
-    const {show} = nextProps;
+    const { show } = nextProps;
 
-    if(show)
+    if (show)
       this._springShow();
     else
       this._springHide();

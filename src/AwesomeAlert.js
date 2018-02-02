@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Alert from './containers';
+import Alert from './containers/alert';
 
 export default class AwesomeAlert extends Component {
 
