@@ -124,8 +124,6 @@ const styles = StyleSheet.create({
 | showConfirmButton | `bool` | Show a confirmation button | false |
 | cancelText | `string` | Cancel button text | Cancel |
 | confirmText | `string` | Confirm button text | Confirm |
-| cancelButtonColor | `string` | Background color for Cancel button | #D0D0D0 |
-| confirmButtonColor | `string` | Background color for Confirm button | #AEDEF4 |
 | onCancelPressed | `func` | Action to perform when Cancel is pressed | - |
 | onConfirmPressed | `func` | Action to perform when Confirm is pressed | - |
 
@@ -140,6 +138,12 @@ const styles = StyleSheet.create({
 | contentContainerStyle | `object` | Alert popup style | - |
 | titleStyle | `object` | Title style | - |
 | messageStyle | `object` | Message style | - |
+| cancelButtonColor | `string` | Background color | #D0D0D0 |
+| confirmButtonColor | `string` | Background color | #AEDEF4 |
+| cancelButtonStyle | `object` | Cancel button style | - |
+| cancelButtonTextStyle | `object` | Cancel button text style | - |
+| confirmButtonStyle | `object` | Confirm button style | - |
+| confirmButtonTextStyle | `object` | Confirm button text style | - |
 
 ## Contribution
 
