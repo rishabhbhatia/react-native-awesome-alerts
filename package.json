@@ -1,6 +1,6 @@
 {
   "name": "react-native-awesome-alerts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Awesome alerts for React Native.",
   "main": "index.js",
   "scripts": {
