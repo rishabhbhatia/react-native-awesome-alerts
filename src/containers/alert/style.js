@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: 'rgba(52,52,52,0.5)',
   },
-  alertContainer: {
+  contentContainer: {
     maxWidth: "80%",
     borderRadius: 5,
     backgroundColor: 'white',

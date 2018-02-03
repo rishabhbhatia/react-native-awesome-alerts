@@ -47,5 +47,8 @@ examples/swiper.xcodeproj/xcuserdata
 *.sw*
 dist/
 
+# Vscode
+.vscode
+
 # lib folder
 lib

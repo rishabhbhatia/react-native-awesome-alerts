@@ -102,7 +102,8 @@ export default class Alert extends Component {
     const { showCancelButton, cancelText, cancelButtonColor, onCancelPressed } = this.props;
     const { showConfirmButton, confirmText, confirmButtonColor, onConfirmPressed } = this.props;
 
-    const { alertContainerStyle, overlayStyle, alertStyle, titleStyle, messageStyle } = this.props;
+    const { alertContainerStyle, overlayStyle, progressSize, progressColor,
+      contentContainerStyle, titleStyle, messageStyle } = this.props;
 
     const cancelButtonData = {
       text: cancelText,
@@ -121,9 +122,9 @@ export default class Alert extends Component {
         <TouchableWithoutFeedback onPress={this._onTapOutside} >
           <View style={[styles.overlay, overlayStyle]} />
         </TouchableWithoutFeedback>
-        <Animated.View style={[styles.alertContainer, animation, alertStyle]}>
+        <Animated.View style={[styles.contentContainer, animation, contentContainerStyle]}>
           <View style={styles.content}>
-            {showProgress && <ActivityIndicator />}
+            {showProgress && <ActivityIndicator size={progressSize} color={progressColor} />}
             {title && <Text style={[styles.title, titleStyle]}>{title}</Text>}
             {message && <Text style={[styles.message, messageStyle]}>{message}</Text>}
           </View>

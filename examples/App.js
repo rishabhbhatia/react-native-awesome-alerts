@@ -40,7 +40,9 @@ export default class App extends Component {
         alertProps = {
           showProgress:true,
           title:"Loading..",
-          closeOnHardwareBackPress:false
+          closeOnHardwareBackPress:false,
+          progressSize: 'small',
+          progressColor: 'gray'
         }
       break;
       case config.type.basic:
@@ -52,6 +54,18 @@ export default class App extends Component {
           confirmButtonColor: config.colors.confirm,
           onConfirmPressed: () => {
             this.hideAlert();
+          },
+          overlayStyle: {
+            backgroundColor: 'rgba(152,152,152,0.5)'
+          },
+          contentContainerStyle: {
+            backgroundColor: 'white'
+          },
+          titleStyle: {
+            fontSize: 18
+          },
+          messageStyle: {
+            fontSize: 14
           }
         }
       break;
