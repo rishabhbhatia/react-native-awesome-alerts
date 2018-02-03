@@ -129,6 +129,18 @@ const styles = StyleSheet.create({
 | onCancelPressed | `func` | Action to perform when Cancel is pressed | - |
 | onConfirmPressed | `func` | Action to perform when Confirm is pressed | - |
 
+#### Styling
+
+| Prop  | Type | Description | Default|
+| :------------ |:---------------:| :---------------:| :-----|
+| alertContainerStyle | `object` | Alert parent container style | - |
+| overlayStyle | `object` | Overlay style | - |
+| progressSize | `string` | Size of activity indicator | - |
+| progressColor | `string` | Color of activity indicator | - |
+| contentContainerStyle | `object` | Alert popup style | - |
+| titleStyle | `object` | Title style | - |
+| messageStyle | `object` | Message style | - |
+
 ## Contribution
 
 - [@rishabhbhatia](mailto:rishabh.bhatia08@gmail.com) Author.
