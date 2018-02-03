@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import AwesomeAlert from 'react-native-awesome-alerts';
@@ -32,19 +32,19 @@ export default class App extends Component {
   };
 
   getProps = () => {
-    const {type} = this.state;
+    const { type } = this.state;
     let alertProps = {};
 
-    switch(type) {
+    switch (type) {
       case config.type.progress:
         alertProps = {
-          showProgress:true,
-          title:"Loading..",
-          closeOnHardwareBackPress:false,
+          showProgress: true,
+          title: "Loading..",
+          closeOnHardwareBackPress: false,
           progressSize: 'small',
           progressColor: 'gray'
         }
-      break;
+        break;
       case config.type.basic:
         alertProps = {
           title: "BasicAwesomeAlert",
@@ -68,7 +68,7 @@ export default class App extends Component {
             fontSize: 14
           }
         }
-      break;
+        break;
       case config.type.error:
         alertProps = {
           title: "ErrorAwesomeAlert",
@@ -80,7 +80,7 @@ export default class App extends Component {
             this.hideAlert();
           }
         }
-      break;
+        break;
       case config.type.action:
         alertProps = {
           title: "ActionsAwesomeAlert",
@@ -90,6 +90,26 @@ export default class App extends Component {
           cancelText: "No, leave offer",
           confirmText: "Yes, checkout",
           confirmButtonColor: config.colors.confirm,
+          cancelButtonStyle: {
+            paddingHorizontal: config.spacing.actionButtonPaddingHorizontal,
+            paddingVertical: config.spacing.actionButtonPaddingVertical,
+            margin: config.spacing.actionButtonMargin,
+            borderRadius: config.size.actionButtonBorderRadius,
+          },
+          cancelButtonTextStyle: {
+            color: '#fff',
+            fontSize: config.size.actionButtonFontSize
+          },
+          confirmButtonStyle: {
+            paddingHorizontal: config.spacing.actionButtonPaddingHorizontal,
+            paddingVertical: config.spacing.actionButtonPaddingVertical,
+            margin: config.spacing.actionButtonMargin,
+            borderRadius: config.size.actionButtonBorderRadius,
+          },
+          confirmButtonTextStyle: {
+            color: '#fff',
+            fontSize: config.size.actionButtonFontSize
+          },
           onCancelPressed: () => {
             this.hideAlert();
           },
@@ -97,14 +117,14 @@ export default class App extends Component {
             this.hideAlert();
           }
         }
-      break;
+        break;
     };
 
     return alertProps;
   }
 
   render() {
-    const {show} = this.state;
+    const { show } = this.state;
     let props = this.getProps();
 
     return (

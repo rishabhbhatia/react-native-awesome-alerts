@@ -83,12 +83,12 @@ export default class Alert extends Component {
   };
 
   _renderButton = (data) => {
-    const { text, backgroundColor, onPress } = data;
+    const { text, backgroundColor, buttonStyle, buttonTextStyle, onPress } = data;
 
     return (
       <TouchableOpacity onPress={onPress}>
-        <View style={[styles.button, { backgroundColor }]}>
-          <Text style={styles.buttonText}>{text}</Text>
+        <View style={[styles.button, { backgroundColor }, buttonStyle]}>
+          <Text style={[styles.buttonText, buttonTextStyle]}>{text}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -99,8 +99,11 @@ export default class Alert extends Component {
 
     const { showProgress } = this.props;
     const { title, message } = this.props;
-    const { showCancelButton, cancelText, cancelButtonColor, onCancelPressed } = this.props;
-    const { showConfirmButton, confirmText, confirmButtonColor, onConfirmPressed } = this.props;
+
+    const { showCancelButton, cancelText, cancelButtonColor, cancelButtonStyle,
+      cancelButtonTextStyle, onCancelPressed } = this.props;
+    const { showConfirmButton, confirmText, confirmButtonColor, confirmButtonStyle,
+      confirmButtonTextStyle, onConfirmPressed } = this.props;
 
     const { alertContainerStyle, overlayStyle, progressSize, progressColor,
       contentContainerStyle, titleStyle, messageStyle } = this.props;
@@ -108,12 +111,16 @@ export default class Alert extends Component {
     const cancelButtonData = {
       text: cancelText,
       backgroundColor: cancelButtonColor,
+      buttonStyle: cancelButtonStyle,
+      buttonTextStyle: cancelButtonTextStyle,
       onPress: onCancelPressed
     };
 
     const confirmButtonData = {
       text: confirmText,
       backgroundColor: confirmButtonColor,
+      buttonStyle: confirmButtonStyle,
+      buttonTextStyle: confirmButtonTextStyle,
       onPress: onConfirmPressed
     };
 
@@ -132,6 +139,7 @@ export default class Alert extends Component {
             {showCancelButton && this._renderButton(cancelButtonData)}
             {showConfirmButton && this._renderButton(confirmButtonData)}
           </View>
+          {this.props.children}
         </Animated.View>
       </View>
     );
