@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -9,7 +9,7 @@ import styles from './styles';
 export default class BasicAwesomeAlert extends Component {
 
   render() {
-    const {onPress} = this.props;
+    const { onPress } = this.props;
 
     return (
       <View style={styles.container}>

@@ -78,6 +78,9 @@ export default class App extends Component {
           confirmButtonColor: config.colors.confirmWarning,
           onConfirmPressed: () => {
             this.hideAlert();
+          },
+          onDismiss: () => {
+            console.log('alert was dismissed');
           }
         }
         break;

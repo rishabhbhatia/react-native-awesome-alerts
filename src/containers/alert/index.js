@@ -59,6 +59,7 @@ export default class Alert extends Component {
 
       setTimeout(() => {
         this._toggleAlert();
+        this._onDismiss();
       }, 70);
     }
   };
@@ -80,6 +81,11 @@ export default class Alert extends Component {
   _onTapOutside = () => {
     const { closeOnTouchOutside } = this.props;
     if (closeOnTouchOutside) this._springHide();
+  };
+
+  _onDismiss = () => {
+    const { onDismiss } = this.props;
+    onDismiss && onDismiss();
   };
 
   _renderButton = (data) => {
