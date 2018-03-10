@@ -1,7 +1,7 @@
 import 'react-native';
 import React from 'react';
 
-import Alert from '../../src/containers';
+import Alert from '../../src/containers/alert';
 
 import renderer from 'react-test-renderer';
 
@@ -10,6 +10,6 @@ import props from '../props';
 test('renders correctly', () => {
   const tree = renderer.create(
     <Alert {...props} />
-    ).toJSON();
+  ).toJSON();
   expect(tree).toMatchSnapshot();
 });
