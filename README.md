@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
 | confirmText | `string` | Confirm button text | Confirm |
 | onCancelPressed | `func` | Action to perform when Cancel is pressed | - |
 | onConfirmPressed | `func` | Action to perform when Confirm is pressed | - |
+| onDismiss | `func` | Callback for when alert is dismissed | - |
 
 #### Styling
 
