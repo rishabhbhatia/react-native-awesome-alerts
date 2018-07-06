@@ -162,10 +162,11 @@ export default class Alert extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { show } = nextProps;
+    const { showSelf } = this.state;
 
-    if (show)
+    if (show && !showSelf)
       this._springShow();
-    else
+    else if (show === false && showSelf)
       this._springHide();
   };
 
