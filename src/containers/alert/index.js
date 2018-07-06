@@ -138,8 +138,8 @@ export default class Alert extends Component {
         <Animated.View style={[styles.contentContainer, animation, contentContainerStyle]}>
           <View style={styles.content}>
             {showProgress && <ActivityIndicator size={progressSize} color={progressColor} />}
-            {title && <Text style={[styles.title, titleStyle]}>{title}</Text>}
-            {message && <Text style={[styles.message, messageStyle]}>{message}</Text>}
+            {title ? <Text style={[styles.title, titleStyle]}>{title}</Text> : null}
+            {message ? <Text style={[styles.message, messageStyle]}>{message}</Text> : null}
           </View>
           <View style={styles.action}>
             {showCancelButton && this._renderButton(cancelButtonData)}
