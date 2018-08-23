@@ -12,13 +12,12 @@ import {
 } from './src/components';
 
 export default class App extends Component {
-
   constructor(props) {
     super(props);
     this.state = { show: false, type: config.type.basic };
-  };
+  }
 
-  showAlert = (type) => {
+  showAlert = type => {
     this.setState({
       show: true,
       type
@@ -39,18 +38,18 @@ export default class App extends Component {
       case config.type.progress:
         alertProps = {
           showProgress: true,
-          title: "Loading..",
+          title: 'Loading..',
           closeOnHardwareBackPress: false,
           progressSize: 'small',
           progressColor: 'gray'
-        }
+        };
         break;
       case config.type.basic:
         alertProps = {
-          title: "BasicAwesomeAlert",
-          message: "I have a message for you!",
+          title: 'BasicAwesomeAlert',
+          message: 'I have a message for you!',
           showConfirmButton: true,
-          confirmText: "View",
+          confirmText: 'View',
           confirmButtonColor: config.colors.confirm,
           onConfirmPressed: () => {
             this.hideAlert();
@@ -67,14 +66,15 @@ export default class App extends Component {
           messageStyle: {
             fontSize: 14
           }
-        }
+        };
         break;
       case config.type.error:
         alertProps = {
-          title: "ErrorAwesomeAlert",
-          message: "The selected variant is unavailable!",
+          title: 'ErrorAwesomeAlert',
+          message: 'The selected variant is unavailable!',
           showConfirmButton: true,
-          confirmText: "Dismiss",
+          confirmText: 'Dismiss',
+          closeOnHardwareBackPress: false,
           confirmButtonColor: config.colors.confirmWarning,
           onConfirmPressed: () => {
             this.hideAlert();
@@ -82,22 +82,22 @@ export default class App extends Component {
           onDismiss: () => {
             console.log('alert was dismissed');
           }
-        }
+        };
         break;
       case config.type.action:
         alertProps = {
-          title: "ActionsAwesomeAlert",
-          message: "Checkout cart items before offer expires!",
+          title: 'ActionsAwesomeAlert',
+          message: 'Checkout cart items before offer expires!',
           showCancelButton: true,
           showConfirmButton: true,
-          cancelText: "No, leave offer",
-          confirmText: "Yes, checkout",
+          cancelText: 'No, leave offer',
+          confirmText: 'Yes, checkout',
           confirmButtonColor: config.colors.confirm,
           cancelButtonStyle: {
             paddingHorizontal: config.spacing.actionButtonPaddingHorizontal,
             paddingVertical: config.spacing.actionButtonPaddingVertical,
             margin: config.spacing.actionButtonMargin,
-            borderRadius: config.size.actionButtonBorderRadius,
+            borderRadius: config.size.actionButtonBorderRadius
           },
           cancelButtonTextStyle: {
             color: '#fff',
@@ -107,7 +107,7 @@ export default class App extends Component {
             paddingHorizontal: config.spacing.actionButtonPaddingHorizontal,
             paddingVertical: config.spacing.actionButtonPaddingVertical,
             margin: config.spacing.actionButtonMargin,
-            borderRadius: config.size.actionButtonBorderRadius,
+            borderRadius: config.size.actionButtonBorderRadius
           },
           confirmButtonTextStyle: {
             color: '#fff',
@@ -119,12 +119,12 @@ export default class App extends Component {
           onConfirmPressed: () => {
             this.hideAlert();
           }
-        }
+        };
         break;
-    };
+    }
 
     return alertProps;
-  }
+  };
 
   render() {
     const { show } = this.state;
@@ -132,27 +132,22 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-
         <ProgressAwesomeAlert onPress={this.showAlert} />
         <BasicAwesomeAlert onPress={this.showAlert} />
         <ErrorAwesomeAlert onPress={this.showAlert} />
         <ActionsAwesomeAlert onPress={this.showAlert} />
 
-        <AwesomeAlert
-          show={show}
-          {...props}
-        />
+        <AwesomeAlert show={show} {...props} />
       </View>
     );
-  };
-
-};
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   }
 });

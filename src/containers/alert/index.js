@@ -19,7 +19,6 @@ const HwBackHandler = BackHandler || BackAndroid;
 const HW_BACK_EVENT = 'hardwareBackPress';
 
 export default class Alert extends Component {
-
   constructor(props) {
     super(props);
     const { show } = this.props;
@@ -30,32 +29,26 @@ export default class Alert extends Component {
     };
 
     if (show) this._springShow(true);
-  };
+  }
 
   componentDidMount() {
     HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
-  };
+  }
 
-  _springShow = (fromConstructor) => {
+  _springShow = fromConstructor => {
     this._toggleAlert(fromConstructor);
-    Animated.spring(
-      this.springValue,
-      {
-        toValue: 1,
-        bounciness: 10
-      }
-    ).start();
+    Animated.spring(this.springValue, {
+      toValue: 1,
+      bounciness: 10
+    }).start();
   };
 
   _springHide = () => {
     if (this.state.showSelf === true) {
-      Animated.spring(
-        this.springValue,
-        {
-          toValue: 0,
-          tension: 10
-        }
-      ).start();
+      Animated.spring(this.springValue, {
+        toValue: 0,
+        tension: 10
+      }).start();
 
       setTimeout(() => {
         this._toggleAlert();
@@ -64,18 +57,18 @@ export default class Alert extends Component {
     }
   };
 
-  _toggleAlert = (fromConstructor) => {
+  _toggleAlert = fromConstructor => {
     if (fromConstructor) this.state = { showSelf: true };
     else this.setState({ showSelf: !this.state.showSelf });
   };
 
   _handleHwBackEvent = () => {
-    if (this.state.showSelf) {
+    const { closeOnHardwareBackPress } = this.props;
+    if (this.state.showSelf && closeOnHardwareBackPress) {
       this._springHide();
-      return true;
     }
 
-    return false;
+    return true;
   };
 
   _onTapOutside = () => {
@@ -88,8 +81,14 @@ export default class Alert extends Component {
     onDismiss && onDismiss();
   };
 
-  _renderButton = (data) => {
-    const { text, backgroundColor, buttonStyle, buttonTextStyle, onPress } = data;
+  _renderButton = data => {
+    const {
+      text,
+      backgroundColor,
+      buttonStyle,
+      buttonTextStyle,
+      onPress
+    } = data;
 
     return (
       <TouchableOpacity onPress={onPress}>
@@ -106,13 +105,32 @@ export default class Alert extends Component {
     const { showProgress } = this.props;
     const { title, message } = this.props;
 
-    const { showCancelButton, cancelText, cancelButtonColor, cancelButtonStyle,
-      cancelButtonTextStyle, onCancelPressed } = this.props;
-    const { showConfirmButton, confirmText, confirmButtonColor, confirmButtonStyle,
-      confirmButtonTextStyle, onConfirmPressed } = this.props;
+    const {
+      showCancelButton,
+      cancelText,
+      cancelButtonColor,
+      cancelButtonStyle,
+      cancelButtonTextStyle,
+      onCancelPressed
+    } = this.props;
+    const {
+      showConfirmButton,
+      confirmText,
+      confirmButtonColor,
+      confirmButtonStyle,
+      confirmButtonTextStyle,
+      onConfirmPressed
+    } = this.props;
 
-    const { alertContainerStyle, overlayStyle, progressSize, progressColor,
-      contentContainerStyle, titleStyle, messageStyle } = this.props;
+    const {
+      alertContainerStyle,
+      overlayStyle,
+      progressSize,
+      progressColor,
+      contentContainerStyle,
+      titleStyle,
+      messageStyle
+    } = this.props;
 
     const cancelButtonData = {
       text: cancelText,
@@ -132,14 +150,22 @@ export default class Alert extends Component {
 
     return (
       <View style={[styles.container, alertContainerStyle]}>
-        <TouchableWithoutFeedback onPress={this._onTapOutside} >
+        <TouchableWithoutFeedback onPress={this._onTapOutside}>
           <View style={[styles.overlay, overlayStyle]} />
         </TouchableWithoutFeedback>
-        <Animated.View style={[styles.contentContainer, animation, contentContainerStyle]}>
+        <Animated.View
+          style={[styles.contentContainer, animation, contentContainerStyle]}
+        >
           <View style={styles.content}>
-            {showProgress ? <ActivityIndicator size={progressSize} color={progressColor} /> : null}
-            {title ? <Text style={[styles.title, titleStyle]}>{title}</Text> : null}
-            {message ? <Text style={[styles.message, messageStyle]}>{message}</Text> : null}
+            {showProgress ? (
+              <ActivityIndicator size={progressSize} color={progressColor} />
+            ) : null}
+            {title ? (
+              <Text style={[styles.title, titleStyle]}>{title}</Text>
+            ) : null}
+            {message ? (
+              <Text style={[styles.message, messageStyle]}>{message}</Text>
+            ) : null}
           </View>
           <View style={styles.action}>
             {showCancelButton ? this._renderButton(cancelButtonData) : null}
@@ -149,32 +175,28 @@ export default class Alert extends Component {
         </Animated.View>
       </View>
     );
-  }
+  };
 
   render() {
     const { showSelf } = this.state;
 
-    if (showSelf)
-      return this._renderAlert();
+    if (showSelf) return this._renderAlert();
 
     return null;
-  };
+  }
 
   componentWillReceiveProps(nextProps) {
     const { show } = nextProps;
     const { showSelf } = this.state;
 
-    if (show && !showSelf)
-      this._springShow();
-    else if (show === false && showSelf)
-      this._springHide();
-  };
+    if (show && !showSelf) this._springShow();
+    else if (show === false && showSelf) this._springHide();
+  }
 
   componentWillUnmount() {
     HwBackHandler.removeEventListener(HW_BACK_EVENT);
   }
-
-};
+}
 
 Alert.propTypes = {
   show: PropTypes.bool,
@@ -190,7 +212,7 @@ Alert.propTypes = {
   cancelButtonColor: PropTypes.string,
   confirmButtonColor: PropTypes.string,
   onCancelPressed: PropTypes.func,
-  onConfirmPressed: PropTypes.func,
+  onConfirmPressed: PropTypes.func
 };
 
 Alert.defaultProps = {
@@ -203,5 +225,5 @@ Alert.defaultProps = {
   cancelText: config.alert.cancelText,
   confirmText: config.alert.confirmText,
   cancelButtonColor: config.colors.cancel,
-  confirmButtonColor: config.colors.confirm,
+  confirmButtonColor: config.colors.confirm
 };
