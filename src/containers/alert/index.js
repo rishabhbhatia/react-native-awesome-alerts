@@ -66,9 +66,12 @@ export default class Alert extends Component {
     const { closeOnHardwareBackPress } = this.props;
     if (this.state.showSelf && closeOnHardwareBackPress) {
       this._springHide();
+      return true;
+    } else if (!closeOnHardwareBackPress && this.state.showSelf) {
+      return true;
     }
 
-    return true;
+    return false;
   };
 
   _onTapOutside = () => {
