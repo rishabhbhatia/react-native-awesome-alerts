@@ -32,11 +32,11 @@ export default class Alert extends Component {
   }
 
   _addHwBackEvent() {
-    if(this.props.closeOnHardwareBackPress) HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
+    HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
   }
 
   _remHwBackEvent() {
-    if(this.props.closeOnHardwareBackPress) HwBackHandler.removeEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
+    HwBackHandler.removeEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
   }
 
   _springShow = fromConstructor => {
