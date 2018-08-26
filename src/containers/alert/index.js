@@ -31,11 +31,16 @@ export default class Alert extends Component {
     if (show) this._springShow(true);
   }
 
-  componentDidMount() {
+  _addHwBackEvent() {
     HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
   }
 
+  _remHwBackEvent() {
+    HwBackHandler.removeEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
+  }
+
   _springShow = fromConstructor => {
+    this._addHwBackEvent();
     this._toggleAlert(fromConstructor);
     Animated.spring(this.springValue, {
       toValue: 1,
@@ -45,6 +50,7 @@ export default class Alert extends Component {
 
   _springHide = () => {
     if (this.state.showSelf === true) {
+      this._remHwBackEvent();
       Animated.spring(this.springValue, {
         toValue: 0,
         tension: 10
@@ -197,7 +203,7 @@ export default class Alert extends Component {
   }
 
   componentWillUnmount() {
-    HwBackHandler.removeEventListener(HW_BACK_EVENT);
+    if(this.state.showSelf) this._remHwBackEvent();
   }
 }
 
