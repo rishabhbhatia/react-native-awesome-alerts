@@ -197,7 +197,7 @@ export default class Alert extends Component {
   }
 
   componentWillUnmount() {
-    HwBackHandler.removeEventListener(HW_BACK_EVENT);
+    HwBackHandler.removeEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
   }
 }
 
