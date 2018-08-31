@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, BackHandler, BackAndroid } from 'react-native';
 
 import AwesomeAlert from 'react-native-awesome-alerts';
 import config from './src/config';
@@ -10,6 +10,9 @@ import {
   ErrorAwesomeAlert,
   ActionsAwesomeAlert
 } from './src/components';
+
+const HwBackHandler = BackHandler || BackAndroid;
+const HW_BACK_EVENT = 'hardwareBackPress';
 
 export default class App extends Component {
   constructor(props) {
@@ -28,6 +31,18 @@ export default class App extends Component {
     this.setState({
       show: false
     });
+  };
+
+  componentDidMount() {
+    HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
+  }
+
+  componentWillUnmount() {
+    HwBackHandler.removeEventListener(HW_BACK_EVENT);
+  }
+
+  _handleHwBackEvent = () => {
+    return true;
   };
 
   getProps = () => {
