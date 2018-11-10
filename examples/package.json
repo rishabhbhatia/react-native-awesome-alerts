@@ -14,14 +14,12 @@
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "node node_modules/jest/bin/jest.js --watch",
-    "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile"
+    "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.54.0",
-    "react-native-awesome-alerts": "*"
+    "react-native-awesome-alerts": "latest"
   }
 }
