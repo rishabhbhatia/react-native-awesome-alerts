@@ -106,7 +106,7 @@ export default class Alert extends Component {
     const animation = { transform: [{ scale: this.springValue }] };
 
     const { showProgress } = this.props;
-    const { title, message } = this.props;
+    const { title, message, customView = null } = this.props;
 
     const {
       showCancelButton,
@@ -169,12 +169,12 @@ export default class Alert extends Component {
             {message ? (
               <Text style={[styles.message, messageStyle]}>{message}</Text>
             ) : null}
+            {customView}
           </View>
           <View style={styles.action}>
             {showCancelButton ? this._renderButton(cancelButtonData) : null}
             {showConfirmButton ? this._renderButton(confirmButtonData) : null}
           </View>
-          {this.props.children}
         </Animated.View>
       </View>
     );
@@ -215,7 +215,8 @@ Alert.propTypes = {
   cancelButtonColor: PropTypes.string,
   confirmButtonColor: PropTypes.string,
   onCancelPressed: PropTypes.func,
-  onConfirmPressed: PropTypes.func
+  onConfirmPressed: PropTypes.func,
+  customView: PropTypes.object
 };
 
 Alert.defaultProps = {
@@ -228,5 +229,6 @@ Alert.defaultProps = {
   cancelText: config.alert.cancelText,
   confirmText: config.alert.confirmText,
   cancelButtonColor: config.colors.cancel,
-  confirmButtonColor: config.colors.confirm
+  confirmButtonColor: config.colors.confirm,
+  customView: null
 };

@@ -5,14 +5,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   button: {
     margin: 10,
     paddingHorizontal: 10,
     paddingVertical: 7,
     borderRadius: 5,
-    backgroundColor: "#AEDEF4",
+    backgroundColor: '#AEDEF4'
   },
   text: {
     color: '#fff',

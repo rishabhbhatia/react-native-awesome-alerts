@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, BackHandler, BackAndroid } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  BackHandler,
+  BackAndroid
+} from 'react-native';
 
 import AwesomeAlert from 'react-native-awesome-alerts';
 import config from './src/config';
 
-import {
-  ProgressAwesomeAlert,
-  BasicAwesomeAlert,
-  ErrorAwesomeAlert,
-  ActionsAwesomeAlert
-} from './src/components';
+import AlertGenerator from './src/components/alertGenerator';
 
 const HwBackHandler = BackHandler || BackAndroid;
 const HW_BACK_EVENT = 'hardwareBackPress';
@@ -136,10 +137,32 @@ export default class App extends Component {
           }
         };
         break;
+      case config.type.custom:
+        alertProps = {
+          title: 'CustomAwesomeAlert',
+          customView: this.renderCustomAlertView(),
+          showConfirmButton: true,
+          onConfirmPressed: () => {
+            this.hideAlert();
+            const { text = '' } = this.state;
+            console.log(text);
+          }
+        };
+        break;
     }
 
     return alertProps;
   };
+
+  renderCustomAlertView = () => (
+    <View style={styles.customView}>
+      <TextInput
+        maxLength={20}
+        placeholder={this.state.text || 'Enter your name..'}
+        onChangeText={text => this.setState({ text })}
+      />
+    </View>
+  );
 
   render() {
     const { show } = this.state;
@@ -147,11 +170,31 @@ export default class App extends Component {
 
     return (
       <View style={styles.container}>
-        <ProgressAwesomeAlert onPress={this.showAlert} />
-        <BasicAwesomeAlert onPress={this.showAlert} />
-        <ErrorAwesomeAlert onPress={this.showAlert} />
-        <ActionsAwesomeAlert onPress={this.showAlert} />
-
+        {AlertGenerator({
+          type: config.type.progress,
+          title: config.titles.progress,
+          onPress: this.showAlert
+        })}
+        {AlertGenerator({
+          type: config.type.basic,
+          title: config.titles.basic,
+          onPress: this.showAlert
+        })}
+        {AlertGenerator({
+          type: config.type.error,
+          title: config.titles.error,
+          onPress: this.showAlert
+        })}
+        {AlertGenerator({
+          type: config.type.action,
+          title: config.titles.action,
+          onPress: this.showAlert
+        })}
+        {AlertGenerator({
+          type: config.type.custom,
+          title: config.titles.custom,
+          onPress: this.showAlert
+        })}
         <AwesomeAlert show={show} {...props} />
       </View>
     );
@@ -162,7 +205,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     backgroundColor: '#fff'
+  },
+  customView: {
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
