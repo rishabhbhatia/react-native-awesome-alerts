@@ -13,7 +13,7 @@
 
 - [Installation](#installation)
 - [Basic Usage](#basic-usage)
-- [Properties](#properties)
+- [Props](#props)
 
 ### Installation
 ```bash
@@ -108,43 +108,44 @@ const styles = StyleSheet.create({
 ```
 ![alt text](http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1504950440/awesome-alerts/react-native-awesome-alerts-basic.gif)
 
-### Properties
+### Props
 
 #### Basic
 
-| Prop  | Type | Description | Default|
-| :------------ |:---------------:| :---------------:| :-----|
-| show | `boolean` | Show / Hide awesome alert | false |
-| showProgress | `boolean` | Show / Hide progress bar | false |
-| title | `string` | Title text to display | hidden |
-| message | `string` | Message text to display | hidden |
-| closeOnTouchOutside | `bool` | Dismiss alert on clicking outside | true |
-| closeOnHardwareBackPress | `bool` | Dismiss alert on hardware back press (android) | true |
-| showCancelButton | `bool` | Show a cancel button | false |
-| showConfirmButton | `bool` | Show a confirmation button | false |
-| cancelText | `string` | Cancel button text | Cancel |
-| confirmText | `string` | Confirm button text | Confirm |
-| onCancelPressed | `func` | Action to perform when Cancel is pressed | - |
-| onConfirmPressed | `func` | Action to perform when Confirm is pressed | - |
-| onDismiss | `func` | Callback for when alert is dismissed | - |
+| Prop                     | Type      | Description                                    | Default |
+| :----------------------- | :-------: | :--------------------------------------------: | :------ |
+| show                     | `boolean` | Show / Hide awesome alert                      | false   |
+| showProgress             | `boolean` | Show / Hide progress bar                       | false   |
+| title                    | `string`  | Title text to display                          | hidden  |
+| message                  | `string`  | Message text to display                        | hidden  |
+| closeOnTouchOutside      | `bool`    | Dismiss alert on clicking outside              | true    |
+| closeOnHardwareBackPress | `bool`    | Dismiss alert on hardware back press (android) | true    |
+| showCancelButton         | `bool`    | Show a cancel button                           | false   |
+| showConfirmButton        | `bool`    | Show a confirmation button                     | false   |
+| cancelText               | `string`  | Cancel button text                             | Cancel  |
+| confirmText              | `string`  | Confirm button text                            | Confirm |
+| onCancelPressed          | `func`    | Action to perform when Cancel is pressed       | -       |
+| onConfirmPressed         | `func`    | Action to perform when Confirm is pressed      | -       |
+| onDismiss                | `func`    | Callback for when alert is dismissed           | -       |
+| customView               | `object`  | Custom view to render inside alert             | null    |
 
 #### Styling
 
-| Prop  | Type | Description | Default|
-| :------------ |:---------------:| :---------------:| :-----|
-| alertContainerStyle | `object` | Alert parent container style | - |
-| overlayStyle | `object` | Overlay style | - |
-| progressSize | `string` | Size of activity indicator | - |
-| progressColor | `string` | Color of activity indicator | - |
-| contentContainerStyle | `object` | Alert popup style | - |
-| titleStyle | `object` | Title style | - |
-| messageStyle | `object` | Message style | - |
-| cancelButtonColor | `string` | Background color | #D0D0D0 |
-| confirmButtonColor | `string` | Background color | #AEDEF4 |
-| cancelButtonStyle | `object` | Cancel button style | - |
-| cancelButtonTextStyle | `object` | Cancel button text style | - |
-| confirmButtonStyle | `object` | Confirm button style | - |
-| confirmButtonTextStyle | `object` | Confirm button text style | - |
+| Prop                   | Type     | Description                  | Default |
+| :--------------------- | :------: | :--------------------------: | :------ |
+| alertContainerStyle    | `object` | Alert parent container style | -       |
+| overlayStyle           | `object` | Overlay style                | -       |
+| progressSize           | `string` | Size of activity indicator   | -       |
+| progressColor          | `string` | Color of activity indicator  | -       |
+| contentContainerStyle  | `object` | Alert popup style            | -       |
+| titleStyle             | `object` | Title style                  | -       |
+| messageStyle           | `object` | Message style                | -       |
+| cancelButtonColor      | `string` | Background color             | #D0D0D0 |
+| confirmButtonColor     | `string` | Background color             | #AEDEF4 |
+| cancelButtonStyle      | `object` | Cancel button style          | -       |
+| cancelButtonTextStyle  | `object` | Cancel button text style     | -       |
+| confirmButtonStyle     | `object` | Confirm button style         | -       |
+| confirmButtonTextStyle | `object` | Confirm button text style    | -       |
 
 ## Contribution
 
