@@ -48,12 +48,10 @@ export default class Alert extends Component {
       Animated.spring(this.springValue, {
         toValue: 0,
         tension: 10
-      }).start();
-
-      setTimeout(() => {
+      }).start(() => {
         this._toggleAlert();
         this._onDismiss();
-      }, 70);
+      });
     }
   };
 
