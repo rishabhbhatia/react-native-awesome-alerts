@@ -1,8 +1,8 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from "react-native";
 
-import config from '../../config';
+import config from "../../config";
 
-const { height, width } = Dimensions.get('window');
+const { height, width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
@@ -12,28 +12,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
+    zIndex: 99999
   },
   overlay: {
     width: width,
     height: height,
-    position: 'absolute',
-    backgroundColor: 'rgba(52,52,52,0.5)',
+    position: "absolute",
+    backgroundColor: "rgba(52,52,52,0.5)"
   },
   contentContainer: {
     maxWidth: "80%",
     borderRadius: 5,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: config.spacing.alertContainerPadding
   },
   content: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: config.spacing.alertContentPadding
   },
   action: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "flex-end",
     marginTop: config.spacing.actionButtonMarginTop
   },
   title: {
@@ -51,10 +52,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: config.spacing.actionButtonPaddingHorizontal,
     paddingVertical: config.spacing.actionButtonPaddingVertical,
     margin: config.spacing.actionButtonMargin,
-    borderRadius: config.size.actionButtonBorderRadius,
+    borderRadius: config.size.actionButtonBorderRadius
   },
   buttonText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: config.size.actionButtonFontSize
   }
 });
