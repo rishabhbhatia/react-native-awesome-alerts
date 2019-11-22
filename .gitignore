@@ -76,6 +76,7 @@ examples/android/app/build/
 .idea
 .gradle
 local.properties
+examples/android/local.properties
 *.iml
 
 # node.js
