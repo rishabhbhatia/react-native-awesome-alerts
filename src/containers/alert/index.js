@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Text,
   Animated,
@@ -8,15 +8,15 @@ import {
   ActivityIndicator,
   BackAndroid,
   BackHandler
-} from 'react-native';
+} from "react-native";
 
-import PropTypes from 'prop-types';
-import config from '../../config';
+import PropTypes from "prop-types";
+import config from "../../config";
 
-import styles from './style';
+import styles from "./style";
 
 const HwBackHandler = BackHandler || BackAndroid;
-const HW_BACK_EVENT = 'hardwareBackPress';
+const HW_BACK_EVENT = "hardwareBackPress";
 
 export default class Alert extends Component {
   constructor(props) {
@@ -188,7 +188,7 @@ export default class Alert extends Component {
     return null;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { show } = nextProps;
     const { showSelf } = this.state;
 
