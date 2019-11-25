@@ -188,7 +188,7 @@ export default class Alert extends Component {
     return null;
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { show } = nextProps;
     const { showSelf } = this.state;
 
