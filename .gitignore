@@ -45,9 +45,6 @@ dist/
 # Vscode
 .vscode
 
-# lib folder
-lib
-
 # Xcode
 #
 build/
@@ -71,12 +68,9 @@ project.xcworkspace
 # Android/IntelliJ
 #
 build/
-examples/android/build/
-examples/android/app/build/
 .idea
 .gradle
 local.properties
-examples/android/local.properties
 *.iml
 
 # node.js
