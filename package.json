@@ -4,20 +4,13 @@
   "description": "Awesome alerts for React Native.",
   "main": "index.js",
   "scripts": {
-    "start": "react-native start",
-    "test": "node node_modules/jest/bin/jest.js --watch",
-    "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile"
+    "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/examples/"
-    ],
     "testPathIgnorePatterns": [
       "/props.js",
-      "<rootDir>/node_modules",
-      "<rootDir>/examples/"
+      "<rootDir>/node_modules"
     ],
     "timers": "fake"
   },
@@ -44,10 +37,6 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-jest": "^21.0.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
     "jest": "^21.0.2",
     "react": "^16.0.0-alpha.12",
     "react-native": "^0.47.2",

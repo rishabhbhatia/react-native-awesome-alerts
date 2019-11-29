@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 
 import PropTypes from 'prop-types';
-import config from '../../config';
 
 import styles from './style';
 
@@ -226,9 +225,9 @@ Alert.defaultProps = {
   closeOnHardwareBackPress: true,
   showCancelButton: false,
   showConfirmButton: false,
-  cancelText: config.alert.cancelText,
-  confirmText: config.alert.confirmText,
-  cancelButtonColor: config.colors.cancel,
-  confirmButtonColor: config.colors.confirm,
+  cancelText: 'Cancel',
+  confirmText: 'Confirm',
+  cancelButtonColor: '#D0D0D0',
+  confirmButtonColor: '#AEDEF4',
   customView: null
 };
