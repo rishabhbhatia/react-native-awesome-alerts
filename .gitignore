@@ -45,9 +45,6 @@ dist/
 # Vscode
 .vscode
 
-# lib folder
-lib
-
 # Xcode
 #
 build/
