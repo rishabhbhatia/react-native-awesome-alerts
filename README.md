@@ -138,8 +138,10 @@ const styles = StyleSheet.create({
 | progressSize           | `string` | Size of activity indicator   | -       |
 | progressColor          | `string` | Color of activity indicator  | -       |
 | contentContainerStyle  | `object` | Alert popup style            | -       |
+| contentStyle           | `object` | Alert popup content style    | -       |
 | titleStyle             | `object` | Title style                  | -       |
 | messageStyle           | `object` | Message style                | -       |
+| actionContainerStyle   | `object` | Action container style       | -       |
 | cancelButtonColor      | `string` | Background color             | #D0D0D0 |
 | confirmButtonColor     | `string` | Background color             | #AEDEF4 |
 | cancelButtonStyle      | `object` | Cancel button style          | -       |

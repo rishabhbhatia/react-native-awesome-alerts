@@ -55,11 +55,14 @@ exports[`renders correctly 1`] = `
   >
     <View
       style={
-        Object {
-          "alignItems": "center",
-          "justifyContent": "center",
-          "padding": 10,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+            "padding": 10,
+          },
+          undefined,
+        ]
       }
     >
       <ActivityIndicator
@@ -100,12 +103,15 @@ exports[`renders correctly 1`] = `
     </View>
     <View
       style={
-        Object {
-          "alignItems": "flex-end",
-          "flexDirection": "row",
-          "justifyContent": "center",
-          "marginTop": 5,
-        }
+        Array [
+          Object {
+            "alignItems": "flex-end",
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "marginTop": 5,
+          },
+          undefined,
+        ]
       }
     >
       <View

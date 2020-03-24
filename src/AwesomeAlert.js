@@ -130,8 +130,10 @@ export default class AwesomeAlert extends Component {
       progressSize,
       progressColor,
       contentContainerStyle,
+      contentStyle,
       titleStyle,
-      messageStyle
+      messageStyle,
+      actionContainerStyle
     } = this.props;
 
     const cancelButtonData = {
@@ -158,7 +160,7 @@ export default class AwesomeAlert extends Component {
         <Animated.View
           style={[styles.contentContainer, animation, contentContainerStyle]}
         >
-          <View style={styles.content}>
+          <View style={[styles.content, contentStyle]}>
             {showProgress ? (
               <ActivityIndicator size={progressSize} color={progressColor} />
             ) : null}
@@ -170,7 +172,7 @@ export default class AwesomeAlert extends Component {
             ) : null}
             {customView}
           </View>
-          <View style={styles.action}>
+          <View style={[styles.action, actionContainerStyle]}>
             {showCancelButton ? this._renderButton(cancelButtonData) : null}
             {showConfirmButton ? this._renderButton(confirmButtonData) : null}
           </View>
