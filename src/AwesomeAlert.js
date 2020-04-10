@@ -35,18 +35,24 @@ export default class AwesomeAlert extends Component {
   }
 
   _springShow = fromConstructor => {
+    const { useNativeDriver = false } = this.props;
+    
     this._toggleAlert(fromConstructor);
     Animated.spring(this.springValue, {
       toValue: 1,
-      bounciness: 10
+      bounciness: 10,
+      useNativeDriver,
     }).start();
   };
 
   _springHide = () => {
+    const { useNativeDriver = false } = this.props;
+
     if (this.state.showSelf === true) {
       Animated.spring(this.springValue, {
         toValue: 0,
-        tension: 10
+        tension: 10,
+        useNativeDriver,
       }).start();
 
       setTimeout(() => {
@@ -204,6 +210,7 @@ export default class AwesomeAlert extends Component {
 
 AwesomeAlert.propTypes = {
   show: PropTypes.bool,
+  useNativeDriver: PropTypes.bool,
   showProgress: PropTypes.bool,
   title: PropTypes.string,
   message: PropTypes.string,
@@ -222,6 +229,7 @@ AwesomeAlert.propTypes = {
 
 AwesomeAlert.defaultProps = {
   show: false,
+  useNativeDriver: false,
   showProgress: false,
   closeOnTouchOutside: true,
   closeOnHardwareBackPress: true,

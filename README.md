@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
 | Prop                     | Type      | Description                                    | Default |
 | :----------------------- | :-------: | :--------------------------------------------: | :------ |
 | show                     | `boolean` | Show / Hide awesome alert                      | false   |
+| useNativeDriver          | `boolean` | Use native driver for animations               | false   |
 | showProgress             | `boolean` | Show / Hide progress bar                       | false   |
 | title                    | `string`  | Title text to display                          | hidden  |
 | message                  | `string`  | Message text to display                        | hidden  |
