@@ -7,7 +7,8 @@ import {
   TouchableWithoutFeedback,
   ActivityIndicator,
   BackAndroid,
-  BackHandler
+  BackHandler,
+  Modal,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -24,7 +25,7 @@ export default class AwesomeAlert extends Component {
     this.springValue = new Animated.Value(0.3);
 
     this.state = {
-      showSelf: false
+      showSelf: false,
     };
 
     if (show) this._springShow(true);
@@ -34,9 +35,9 @@ export default class AwesomeAlert extends Component {
     HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
   }
 
-  _springShow = fromConstructor => {
+  _springShow = (fromConstructor) => {
     const { useNativeDriver = false } = this.props;
-    
+
     this._toggleAlert(fromConstructor);
     Animated.spring(this.springValue, {
       toValue: 1,
@@ -62,7 +63,7 @@ export default class AwesomeAlert extends Component {
     }
   };
 
-  _toggleAlert = fromConstructor => {
+  _toggleAlert = (fromConstructor) => {
     if (fromConstructor) this.state = { showSelf: true };
     else this.setState({ showSelf: !this.state.showSelf });
   };
@@ -89,13 +90,13 @@ export default class AwesomeAlert extends Component {
     onDismiss && onDismiss();
   };
 
-  _renderButton = data => {
+  _renderButton = (data) => {
     const {
       text,
       backgroundColor,
       buttonStyle,
       buttonTextStyle,
-      onPress
+      onPress,
     } = data;
 
     return (
@@ -119,7 +120,7 @@ export default class AwesomeAlert extends Component {
       cancelButtonColor,
       cancelButtonStyle,
       cancelButtonTextStyle,
-      onCancelPressed
+      onCancelPressed,
     } = this.props;
     const {
       showConfirmButton,
@@ -127,7 +128,7 @@ export default class AwesomeAlert extends Component {
       confirmButtonColor,
       confirmButtonStyle,
       confirmButtonTextStyle,
-      onConfirmPressed
+      onConfirmPressed,
     } = this.props;
 
     const {
@@ -139,7 +140,7 @@ export default class AwesomeAlert extends Component {
       contentStyle,
       titleStyle,
       messageStyle,
-      actionContainerStyle
+      actionContainerStyle,
     } = this.props;
 
     const cancelButtonData = {
@@ -147,7 +148,7 @@ export default class AwesomeAlert extends Component {
       backgroundColor: cancelButtonColor,
       buttonStyle: cancelButtonStyle,
       buttonTextStyle: cancelButtonTextStyle,
-      onPress: onCancelPressed
+      onPress: onCancelPressed,
     };
 
     const confirmButtonData = {
@@ -155,35 +156,44 @@ export default class AwesomeAlert extends Component {
       backgroundColor: confirmButtonColor,
       buttonStyle: confirmButtonStyle,
       buttonTextStyle: confirmButtonTextStyle,
-      onPress: onConfirmPressed
+      onPress: onConfirmPressed,
     };
 
     return (
-      <View style={[styles.container, alertContainerStyle]}>
-        <TouchableWithoutFeedback onPress={this._onTapOutside}>
-          <View style={[styles.overlay, overlayStyle]} />
-        </TouchableWithoutFeedback>
-        <Animated.View
-          style={[styles.contentContainer, animation, contentContainerStyle]}
-        >
-          <View style={[styles.content, contentStyle]}>
-            {showProgress ? (
-              <ActivityIndicator size={progressSize} color={progressColor} />
-            ) : null}
-            {title ? (
-              <Text style={[styles.title, titleStyle]}>{title}</Text>
-            ) : null}
-            {message ? (
-              <Text style={[styles.message, messageStyle]}>{message}</Text>
-            ) : null}
-            {customView}
-          </View>
-          <View style={[styles.action, actionContainerStyle]}>
-            {showCancelButton ? this._renderButton(cancelButtonData) : null}
-            {showConfirmButton ? this._renderButton(confirmButtonData) : null}
-          </View>
-        </Animated.View>
-      </View>
+      <Modal
+        animationType="none"
+        transparent={true}
+        visible={this.state.show}
+        onRequestClose={() => {
+          this._springHide();
+        }}
+      >
+        <View style={[styles.container, alertContainerStyle]}>
+          <TouchableWithoutFeedback onPress={this._onTapOutside}>
+            <View style={[styles.overlay, overlayStyle]} />
+          </TouchableWithoutFeedback>
+          <Animated.View
+            style={[styles.contentContainer, animation, contentContainerStyle]}
+          >
+            <View style={[styles.content, contentStyle]}>
+              {showProgress ? (
+                <ActivityIndicator size={progressSize} color={progressColor} />
+              ) : null}
+              {title ? (
+                <Text style={[styles.title, titleStyle]}>{title}</Text>
+              ) : null}
+              {message ? (
+                <Text style={[styles.message, messageStyle]}>{message}</Text>
+              ) : null}
+              {customView}
+            </View>
+            <View style={[styles.action, actionContainerStyle]}>
+              {showCancelButton ? this._renderButton(cancelButtonData) : null}
+              {showConfirmButton ? this._renderButton(confirmButtonData) : null}
+            </View>
+          </Animated.View>
+        </View>
+      </Modal>
     );
   };
 
@@ -224,7 +234,7 @@ AwesomeAlert.propTypes = {
   confirmButtonColor: PropTypes.string,
   onCancelPressed: PropTypes.func,
   onConfirmPressed: PropTypes.func,
-  customView: PropTypes.object
+  customView: PropTypes.object,
 };
 
 AwesomeAlert.defaultProps = {
@@ -239,5 +249,5 @@ AwesomeAlert.defaultProps = {
   confirmText: 'Confirm',
   cancelButtonColor: '#D0D0D0',
   confirmButtonColor: '#AEDEF4',
-  customView: null
+  customView: null,
 };
