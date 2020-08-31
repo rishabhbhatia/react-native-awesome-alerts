@@ -165,7 +165,9 @@ export default class AwesomeAlert extends Component {
         transparent={true}
         visible={this.state.show}
         onRequestClose={() => {
-          this._springHide();
+          if (this.state.showSelf && closeOnHardwareBackPress) {
+            this._springHide();
+          }
         }}
       >
         <View style={[styles.container, alertContainerStyle]}>
