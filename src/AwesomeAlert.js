@@ -9,6 +9,7 @@ import {
   BackAndroid,
   BackHandler,
   Modal,
+  Platform,
 } from 'react-native';
 
 import PropTypes from 'prop-types';
@@ -17,6 +18,8 @@ import styles from './styles';
 
 const HwBackHandler = BackHandler || BackAndroid;
 const HW_BACK_EVENT = 'hardwareBackPress';
+
+const { OS } = Platform;
 
 export default class AwesomeAlert extends Component {
   constructor(props) {
@@ -160,51 +163,56 @@ export default class AwesomeAlert extends Component {
     };
 
     return (
-      <Modal
-        animationType="none"
-        transparent={true}
-        visible={this.state.show}
-        onRequestClose={() => {
-          if (this.state.showSelf && closeOnHardwareBackPress) {
-            this._springHide();
-          }
-        }}
-      >
-        <View style={[styles.container, alertContainerStyle]}>
-          <TouchableWithoutFeedback onPress={this._onTapOutside}>
-            <View style={[styles.overlay, overlayStyle]} />
-          </TouchableWithoutFeedback>
-          <Animated.View
-            style={[styles.contentContainer, animation, contentContainerStyle]}
-          >
-            <View style={[styles.content, contentStyle]}>
-              {showProgress ? (
-                <ActivityIndicator size={progressSize} color={progressColor} />
-              ) : null}
-              {title ? (
-                <Text style={[styles.title, titleStyle]}>{title}</Text>
-              ) : null}
-              {message ? (
-                <Text style={[styles.message, messageStyle]}>{message}</Text>
-              ) : null}
-              {customView}
-            </View>
-            <View style={[styles.action, actionContainerStyle]}>
-              {showCancelButton ? this._renderButton(cancelButtonData) : null}
-              {showConfirmButton ? this._renderButton(confirmButtonData) : null}
-            </View>
-          </Animated.View>
-        </View>
-      </Modal>
+      <View style={[styles.container, alertContainerStyle]}>
+        <TouchableWithoutFeedback onPress={this._onTapOutside}>
+          <View style={[styles.overlay, overlayStyle]} />
+        </TouchableWithoutFeedback>
+        <Animated.View
+          style={[styles.contentContainer, animation, contentContainerStyle]}
+        >
+          <View style={[styles.content, contentStyle]}>
+            {showProgress ? (
+              <ActivityIndicator size={progressSize} color={progressColor} />
+            ) : null}
+            {title ? (
+              <Text style={[styles.title, titleStyle]}>{title}</Text>
+            ) : null}
+            {message ? (
+              <Text style={[styles.message, messageStyle]}>{message}</Text>
+            ) : null}
+            {customView}
+          </View>
+          <View style={[styles.action, actionContainerStyle]}>
+            {showCancelButton ? this._renderButton(cancelButtonData) : null}
+            {showConfirmButton ? this._renderButton(confirmButtonData) : null}
+          </View>
+        </Animated.View>
+      </View>
     );
   };
 
   render() {
-    const { showSelf } = this.state;
+    const { show, showSelf } = this.state;
+    const { closeOnHardwareBackPress } = this.props;
 
-    if (showSelf) return this._renderAlert();
+    const wrapInModal = OS === 'android' || OS === 'ios';
 
-    return null;
+    return showSelf ?
+      wrapInModal ? (
+        <Modal
+          animationType="none"
+          transparent={true}
+          visible={show}
+          onRequestClose={() => {
+            if (showSelf && closeOnHardwareBackPress) {
+              this._springHide();
+            }
+          }}
+        >
+          {this._renderAlert()}
+        </Modal>
+      ) : this._renderAlert()
+    : null;
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
