@@ -150,10 +150,6 @@ const styles = StyleSheet.create({
 | confirmButtonStyle     | `object` | Confirm button style         | -       |
 | confirmButtonTextStyle | `object` | Confirm button text style    | -       |
 
-## Contribution
-
-- [@rishabhbhatia](mailto:rishabh.bhatia08@gmail.com) Author.
-
 ## Inspiration
 
 Pedant: sweet-alert-dialog [(Github)](https://github.com/pedant/sweet-alert-dialog)
