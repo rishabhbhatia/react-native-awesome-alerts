@@ -244,7 +244,11 @@ AwesomeAlert.propTypes = {
   confirmButtonColor: PropTypes.string,
   onCancelPressed: PropTypes.func,
   onConfirmPressed: PropTypes.func,
-  customView: PropTypes.node,
+  customView: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.func,
+  ]),
 };
 
 AwesomeAlert.defaultProps = {

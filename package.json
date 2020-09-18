@@ -3,6 +3,7 @@
   "version": "1.4.0",
   "description": "Awesome alert for React Native iOS, android and web",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
