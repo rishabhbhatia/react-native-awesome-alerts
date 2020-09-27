@@ -193,7 +193,7 @@ export default class AwesomeAlert extends Component {
 
   render() {
     const { show, showSelf } = this.state;
-    const { closeOnHardwareBackPress } = this.props;
+    const { modalProps = {}, closeOnHardwareBackPress } = this.props;
 
     const wrapInModal = OS === 'android' || OS === 'ios';
 
@@ -208,6 +208,7 @@ export default class AwesomeAlert extends Component {
               this._springHide();
             }
           }}
+          {...modalProps}
         >
           {this._renderAlert()}
         </Modal>
@@ -249,6 +250,7 @@ AwesomeAlert.propTypes = {
     PropTypes.node,
     PropTypes.func,
   ]),
+  modalProps: PropTypes.object,
 };
 
 AwesomeAlert.defaultProps = {
@@ -264,4 +266,5 @@ AwesomeAlert.defaultProps = {
   cancelButtonColor: '#D0D0D0',
   confirmButtonColor: '#AEDEF4',
   customView: null,
+  modalProps: {},
 };

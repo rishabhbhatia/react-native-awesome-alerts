@@ -1,4 +1,5 @@
 import React from 'react';
+import { ModalProps } from 'react-native';
 
 export interface AwesomeAlertProps {
   show?: boolean;
@@ -31,6 +32,7 @@ export interface AwesomeAlertProps {
   confirmButtonColor?: string;
   confirmButtonTextStyle?: object;
   confirmButtonStyle?: object;
+  modalProps?: ModalProps;
 }
 
 declare class AwesomeAlert extends React.Component<AwesomeAlertProps> {}

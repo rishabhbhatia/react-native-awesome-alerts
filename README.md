@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
 | onConfirmPressed         | `func`    | Action to perform when Confirm is pressed      | -       |
 | onDismiss                | `func`    | Callback for when alert is dismissed           | -       |
 | customView               | `object`  | Custom view to render inside alert             | null    |
+| modalProps               | `object`  | Additional props to pass for Modal             | -       |
 
 #### Styling
 
