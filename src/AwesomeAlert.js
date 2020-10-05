@@ -3,6 +3,7 @@ import {
   Text,
   Animated,
   View,
+  ScrollView,
   TouchableOpacity,
   TouchableWithoutFeedback,
   ActivityIndicator,
@@ -170,18 +171,20 @@ export default class AwesomeAlert extends Component {
         <Animated.View
           style={[styles.contentContainer, animation, contentContainerStyle]}
         >
-          <View style={[styles.content, contentStyle]}>
-            {showProgress ? (
-              <ActivityIndicator size={progressSize} color={progressColor} />
-            ) : null}
-            {title ? (
-              <Text style={[styles.title, titleStyle]}>{title}</Text>
-            ) : null}
-            {message ? (
-              <Text style={[styles.message, messageStyle]}>{message}</Text>
-            ) : null}
-            {customView}
-          </View>
+          <ScrollView>
+            <View style={[styles.content, contentStyle]}>
+              {showProgress ? (
+                <ActivityIndicator size={progressSize} color={progressColor} />
+              ) : null}
+              {title ? (
+                <Text style={[styles.title, titleStyle]}>{title}</Text>
+              ) : null}
+              {message ? (
+                <Text style={[styles.message, messageStyle]}>{message}</Text>
+              ) : null}
+              {customView}
+            </View>
+          </ScrollView>
           <View style={[styles.action, actionContainerStyle]}>
             {showCancelButton ? this._renderButton(cancelButtonData) : null}
             {showConfirmButton ? this._renderButton(confirmButtonData) : null}
