@@ -4,6 +4,25 @@
 
 # React Native Awesome Alerts
 
+### Forked from [(https://github.com/rishabhbhatia/react-native-awesome-alerts)]
+
+### Updated 2021
+
+- Checkbox feature added!
+
+<img src="dialog.png" width=200 />
+
+### New Props
+
+| Prop                     | Type      | Description                                    | Default |
+| :----------------------- | :-------: | :--------------------------------------------: | :------ |
+| showCheckBox             | `boolean` | Show / Hide checkbox                           | false   |
+| labelCheckBox            | `string`  | Message next to checkbox                       |         |
+| colorChecked             | `string ` | Color when checkbox is checked                 |         |
+| colorCheckLabel          | `string`  | Color of label text                            | Black   |
+| onCheckboxChecked        | `func`    | Action when checkbox is pressed                |    -    |
+
+
 ### Demo [(Watch it on YouTube)](https://youtu.be/VIJYKUFpFCU)
 
 ![alt text](http://res.cloudinary.com/rishabhbhatia/image/upload/c_scale,w_200/v1505042954/awesome-alerts/v1.0.3/react-native-awesome-alerts.gif)
