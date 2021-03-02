@@ -147,7 +147,7 @@ export default class AwesomeAlert extends Component {
       actionContainerStyle,
     } = this.props;
 
-    const { showCheckBox, labelCheckBox, colorCheckLabel, colorChecked } = this.props;
+    const { showCheckBox, labelCheckBox, colorCheckLabel, colorChecked, onCheckboxChecked } = this.props;
 
     const cancelButtonData = {
       text: cancelText,
@@ -194,7 +194,7 @@ export default class AwesomeAlert extends Component {
               fillColor={ colorChecked || "red" }
               borderColor={ colorChecked || "red" }
               text={labelCheckBox || "Customize your label 🎉 🎊"}
-              onPress={(checked) => console.log("Checked: ", checked)}
+              onPress={(checked) => onCheckboxChecked(checked)}
               textDecoration={false}
             />
           </View>
@@ -273,7 +273,8 @@ AwesomeAlert.propTypes = {
   showCheckBox: PropTypes.bool,
   labelCheckBox: PropTypes.string,
   colorCheckLabel: PropTypes.string,
-  colorChecked: PropTypes.string
+  colorChecked: PropTypes.string,
+  onCheckboxChecked: PropTypes.func
 };
 
 AwesomeAlert.defaultProps = {

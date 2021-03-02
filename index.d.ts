@@ -36,7 +36,8 @@ export interface AwesomeAlertProps {
   showCheckBox?: boolean;
   labelCheckBox?: string
   colorCheckLabel?: string
-  colorChecked?: string
+  colorChecked?: string,
+  onCheckboxChecked?: () => void;
 }
 
 declare class AwesomeAlert extends React.Component<AwesomeAlertProps> {}
