@@ -33,6 +33,10 @@ export interface AwesomeAlertProps {
   confirmButtonTextStyle?: object;
   confirmButtonStyle?: object;
   modalProps?: ModalProps;
+  showCheckBox?: boolean;
+  labelCheckBox?: string
+  colorCheckLabel?: string
+  colorChecked?: string
 }
 
 declare class AwesomeAlert extends React.Component<AwesomeAlertProps> {}
