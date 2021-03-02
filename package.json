@@ -33,16 +33,17 @@
   },
   "homepage": "https://github.com/rishabhbhatia/react-native-awesome-alerts#readme",
   "dependencies": {
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-native-bouncy-checkbox": "^1.0.8"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "babel-cli": "^6.26.0",
     "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
-    "metro-react-native-babel-preset": "^0.57.0",
-    "react": "^16.12.0",
-    "react-native": "^0.61.5",
-    "react-test-renderer": "^16.12.0"
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react": "16.13.1",
+    "react-native": "^0.63.4",
+    "react-test-renderer": "16.13.1"
   }
 }

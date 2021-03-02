@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Text,
   Animated,
@@ -10,14 +10,15 @@ import {
   BackHandler,
   Modal,
   Platform,
-} from 'react-native';
+} from "react-native";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import styles from './styles';
+import styles from "./styles";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const HwBackHandler = BackHandler || BackAndroid;
-const HW_BACK_EVENT = 'hardwareBackPress';
+const HW_BACK_EVENT = "hardwareBackPress";
 
 const { OS } = Platform;
 
@@ -146,6 +147,8 @@ export default class AwesomeAlert extends Component {
       actionContainerStyle,
     } = this.props;
 
+    const { showCheckBox, labelCheckBox, colorCheckLabel, colorChecked } = this.props;
+
     const cancelButtonData = {
       text: cancelText,
       backgroundColor: cancelButtonColor,
@@ -182,6 +185,18 @@ export default class AwesomeAlert extends Component {
             ) : null}
             {customView}
           </View>
+          {/** CheckBox */}
+          { showCheckBox &&
+          <View>
+            <BouncyCheckbox
+              isChecked
+              textColor={ colorCheckLabel || "#000" }
+              fillColor={ colorChecked || "red" }
+              text={labelCheckBox || "Customize your label 🎉 🎊"}
+              onPress={(checked) => console.log("Checked: ", checked)}
+            />
+          </View>
+          }
           <View style={[styles.action, actionContainerStyle]}>
             {showCancelButton ? this._renderButton(cancelButtonData) : null}
             {showConfirmButton ? this._renderButton(confirmButtonData) : null}
@@ -195,9 +210,9 @@ export default class AwesomeAlert extends Component {
     const { show, showSelf } = this.state;
     const { modalProps = {}, closeOnHardwareBackPress } = this.props;
 
-    const wrapInModal = OS === 'android' || OS === 'ios';
+    const wrapInModal = OS === "android" || OS === "ios";
 
-    return showSelf ?
+    return showSelf ? (
       wrapInModal ? (
         <Modal
           animationType="none"
@@ -212,8 +227,10 @@ export default class AwesomeAlert extends Component {
         >
           {this._renderAlert()}
         </Modal>
-      ) : this._renderAlert()
-    : null;
+      ) : (
+        this._renderAlert()
+      )
+    ) : null;
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -251,6 +268,10 @@ AwesomeAlert.propTypes = {
     PropTypes.func,
   ]),
   modalProps: PropTypes.object,
+  showCheckBox: PropTypes.bool,
+  labelCheckBox: PropTypes.string,
+  colorCheckLabel: PropTypes.string,
+  colorChecked: PropTypes.string
 };
 
 AwesomeAlert.defaultProps = {
@@ -261,10 +282,11 @@ AwesomeAlert.defaultProps = {
   closeOnHardwareBackPress: true,
   showCancelButton: false,
   showConfirmButton: false,
-  cancelText: 'Cancel',
-  confirmText: 'Confirm',
-  cancelButtonColor: '#D0D0D0',
-  confirmButtonColor: '#AEDEF4',
+  cancelText: "Cancel",
+  confirmText: "Confirm",
+  cancelButtonColor: "#D0D0D0",
+  confirmButtonColor: "#AEDEF4",
   customView: null,
   modalProps: {},
+  showCheckBox: false,
 };
