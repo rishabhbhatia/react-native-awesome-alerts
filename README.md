@@ -10,7 +10,7 @@
 
 - Checkbox feature added!
 
-<img src="dialog.png" width=200 />
+<img src="images/dialog.png" width=200 />
 
 ### New Props
 
