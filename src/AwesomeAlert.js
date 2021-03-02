@@ -192,8 +192,10 @@ export default class AwesomeAlert extends Component {
               isChecked
               textColor={ colorCheckLabel || "#000" }
               fillColor={ colorChecked || "red" }
+              borderColor={ colorChecked || "red" }
               text={labelCheckBox || "Customize your label 🎉 🎊"}
               onPress={(checked) => console.log("Checked: ", checked)}
+              textDecoration={false}
             />
           </View>
           }
