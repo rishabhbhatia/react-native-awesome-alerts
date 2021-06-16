@@ -79,3 +79,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+# local package (with local-package-publisher)
+#
+.local-pack/

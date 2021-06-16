@@ -1,216 +1,222 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "flex": 1,
-        "height": "100%",
-        "justifyContent": "center",
-        "position": "absolute",
-        "width": "100%",
-      },
-      undefined,
-    ]
-  }
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  onRequestClose={[Function]}
+  transparent={true}
+  visible={true}
 >
   <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
       Array [
         Object {
-          "backgroundColor": "rgba(52,52,52,0.5)",
-          "height": 1334,
+          "alignItems": "center",
+          "flex": 1,
+          "height": "100%",
+          "justifyContent": "center",
           "position": "absolute",
-          "width": 750,
+          "width": "100%",
         },
         undefined,
       ]
     }
-  />
-  <View
-    style={
-      Object {
-        "backgroundColor": "white",
-        "borderRadius": 5,
-        "maxWidth": "80%",
-        "padding": 10,
-        "transform": Array [
-          Object {
-            "scale": 0.30000000000000004,
-          },
-        ],
-      }
-    }
   >
     <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Array [
           Object {
-            "alignItems": "center",
-            "justifyContent": "center",
-            "padding": 10,
+            "backgroundColor": "rgba(52,52,52,0.5)",
+            "height": 1334,
+            "position": "absolute",
+            "width": 750,
           },
           undefined,
         ]
       }
-    >
-      <ActivityIndicator
-        animating={true}
-        color="#999999"
-        hidesWhenStopped={true}
-        size="small"
-      />
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#626262",
-              "fontSize": 18,
-              "paddingHorizontal": 15,
-              "paddingVertical": 5,
-            },
-            undefined,
-          ]
-        }
-      >
-        Awesome Alert
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#7b7b7b",
-              "fontSize": 14,
-              "paddingTop": 5,
-            },
-            undefined,
-          ]
-        }
-      >
-        I am just a message
-      </Text>
-    </View>
+    />
     <View
       style={
-        Array [
-          Object {
-            "alignItems": "flex-end",
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "marginTop": 5,
-          },
-          undefined,
-        ]
+        Object {
+          "backgroundColor": "white",
+          "borderRadius": 5,
+          "maxWidth": "80%",
+          "padding": 10,
+          "transform": Array [
+            Object {
+              "scale": 0.30000000000000004,
+            },
+          ],
+        }
       }
     >
       <View
-        accessible={true}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+              "padding": 10,
+            },
+            undefined,
+          ]
         }
       >
-        <View
+        <ActivityIndicator
+          animating={true}
+          color="#999999"
+          hidesWhenStopped={true}
+          size="small"
+        />
+        <Text
           style={
             Array [
               Object {
-                "borderRadius": 5,
-                "margin": 5,
-                "paddingHorizontal": 10,
-                "paddingVertical": 7,
-              },
-              Object {
-                "backgroundColor": "#D0D0D0",
+                "color": "#626262",
+                "fontSize": 18,
+                "paddingHorizontal": 15,
+                "paddingVertical": 5,
               },
               undefined,
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#fff",
-                  "fontSize": 13,
-                },
-                undefined,
-              ]
-            }
-          >
-            Dismiss
-          </Text>
-        </View>
+          Awesome Alert
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#7b7b7b",
+                "fontSize": 14,
+                "paddingTop": 5,
+              },
+              undefined,
+            ]
+          }
+        >
+          I am just a message
+        </Text>
       </View>
       <View
-        accessible={true}
-        focusable={false}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-end",
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "marginTop": 5,
+            },
+            undefined,
+          ]
         }
       >
         <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "borderRadius": 5,
-                "margin": 5,
-                "paddingHorizontal": 10,
-                "paddingVertical": 7,
-              },
-              Object {
-                "backgroundColor": "#AEDEF4",
-              },
-              undefined,
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
         >
-          <Text
+          <View
             style={
               Array [
                 Object {
-                  "color": "#fff",
-                  "fontSize": 13,
+                  "borderRadius": 5,
+                  "margin": 5,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 7,
+                },
+                Object {
+                  "backgroundColor": "#D0D0D0",
                 },
                 undefined,
               ]
             }
           >
-            Confirm
-          </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 13,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Dismiss
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "borderRadius": 5,
+                  "margin": 5,
+                  "paddingHorizontal": 10,
+                  "paddingVertical": 7,
+                },
+                Object {
+                  "backgroundColor": "#AEDEF4",
+                },
+                undefined,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 13,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Confirm
+            </Text>
+          </View>
         </View>
       </View>
     </View>
   </View>
-</View>
+</Modal>
 `;
