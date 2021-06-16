@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   ActivityIndicator,
-  BackAndroid,
   BackHandler,
   Modal,
   Platform,
@@ -16,7 +15,7 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-const HwBackHandler = BackHandler || BackAndroid;
+const HwBackHandler = BackHandler;
 const HW_BACK_EVENT = 'hardwareBackPress';
 
 const { OS } = Platform;
@@ -125,6 +124,7 @@ export default class AwesomeAlert extends Component {
       cancelButtonTextStyle,
       onCancelPressed,
     } = this.props;
+
     const {
       showConfirmButton,
       confirmText,
