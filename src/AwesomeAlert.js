@@ -15,8 +15,6 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 
-// BackAndroid was removed from react-native
-// const HwBackHandler = BackHandler || BackAndroid;
 const HwBackHandler = BackHandler;
 const HW_BACK_EVENT = 'hardwareBackPress';
 
