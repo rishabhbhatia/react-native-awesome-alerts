@@ -56,7 +56,7 @@ export default class AwesomeAlert extends Component {
         toValue: 0,
         tension: 10,
         useNativeDriver,
-      }).start(({finished) => {
+      }).start(({finished}) => {
         if (finished) {
           this._toggleAlert();
           this._onDismiss();
