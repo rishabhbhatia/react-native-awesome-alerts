@@ -54,7 +54,7 @@ exports[`renders correctly 1`] = `
           "padding": 10,
           "transform": Array [
             Object {
-              "scale": 0.30000000000000004,
+              "scale": 0.30011885774268954,
             },
           ],
         }
@@ -124,6 +124,7 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={false}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -171,6 +172,7 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={false}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
