@@ -24,7 +24,7 @@ export default class AwesomeAlert extends Component {
   constructor(props) {
     super(props);
     const { show } = this.props;
-    this.springValue = new Animated.Value(0.3);
+    this.springValue = new Animated.Value(props.animatedValue);
 
     this.state = {
       showSelf: false,
@@ -231,6 +231,7 @@ export default class AwesomeAlert extends Component {
 
 AwesomeAlert.propTypes = {
   show: PropTypes.bool,
+  animatedValue: PropTypes.number,
   useNativeDriver: PropTypes.bool,
   showProgress: PropTypes.bool,
   title: PropTypes.string,
@@ -255,6 +256,7 @@ AwesomeAlert.propTypes = {
 
 AwesomeAlert.defaultProps = {
   show: false,
+  animatedValue: 0.3,
   useNativeDriver: false,
   showProgress: false,
   closeOnTouchOutside: true,
