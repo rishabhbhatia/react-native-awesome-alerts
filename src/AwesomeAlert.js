@@ -56,12 +56,12 @@ export default class AwesomeAlert extends Component {
         toValue: 0,
         tension: 10,
         useNativeDriver,
-      }).start();
-
-      setTimeout(() => {
-        this._toggleAlert();
-        this._onDismiss();
-      }, 70);
+      }).start(({finished}) => {
+        if (finished) {
+          this._toggleAlert();
+          this._onDismiss();
+        }
+      });
     }
   };
 
