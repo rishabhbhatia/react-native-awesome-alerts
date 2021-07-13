@@ -152,6 +152,9 @@ const styles = StyleSheet.create({
 | confirmButtonStyle     | `object` | Confirm button style         | -       |
 | confirmButtonTextStyle | `object` | Confirm button text style    | -       |
 
+## Tests
+For automated tests, use data-testid='awesome-alert-cancel-btn' and data-testID='awesome-alert-confirm-btn' properties for the cancel and confirm buttons, respectively
+
 ## Inspiration
 
 Pedant: sweet-alert-dialog [(Github)](https://github.com/pedant/sweet-alert-dialog)
