@@ -94,6 +94,7 @@ export default class AwesomeAlert extends Component {
 
   _renderButton = (data) => {
     const {
+      testID,
       text,
       backgroundColor,
       buttonStyle,
@@ -102,7 +103,7 @@ export default class AwesomeAlert extends Component {
     } = data;
 
     return (
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity testID={testID} onPress={onPress}>
         <View style={[styles.button, { backgroundColor }, buttonStyle]}>
           <Text style={[styles.buttonText, buttonTextStyle]}>{text}</Text>
         </View>
@@ -147,6 +148,7 @@ export default class AwesomeAlert extends Component {
     } = this.props;
 
     const cancelButtonData = {
+      testID: 'awesome-alert-cancel-btn',
       text: cancelText,
       backgroundColor: cancelButtonColor,
       buttonStyle: cancelButtonStyle,
@@ -155,6 +157,7 @@ export default class AwesomeAlert extends Component {
     };
 
     const confirmButtonData = {
+      testID: 'awesome-alert-confirm-btn',
       text: confirmText,
       backgroundColor: confirmButtonColor,
       buttonStyle: confirmButtonStyle,
