@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
 | onDismiss                | `func`    | Callback for when alert is dismissed           | -       |
 | customView               | `object`  | Custom view to render inside alert             | null    |
 | modalProps               | `object`  | Additional props to pass for Modal             | -       |
-| confirmButtonTestID    | `string` | Confirm button testID                             | awesome-alert-confirm-btn|
-| cancelButtonTestID     | `string` | Confirm button testID                             | awesome-alert-confirm-btn|
+| confirmButtonTestID      | `string`  | Confirm button testID                          | awesome-alert-confirm-btn|
+| cancelButtonTestID       | `string`  | Confirm button testID                          | awesome-alert-confirm-btn|
 
 #### Styling
 
