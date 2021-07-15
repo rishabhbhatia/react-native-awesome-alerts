@@ -131,6 +131,8 @@ const styles = StyleSheet.create({
 | onDismiss                | `func`    | Callback for when alert is dismissed           | -       |
 | customView               | `object`  | Custom view to render inside alert             | null    |
 | modalProps               | `object`  | Additional props to pass for Modal             | -       |
+| confirmButtonTestID    | `string` | Confirm button testID                             | awesome-alert-confirm-btn|
+| cancelButtonTestID     | `string` | Confirm button testID                             | awesome-alert-confirm-btn|
 
 #### Styling
 
@@ -153,7 +155,8 @@ const styles = StyleSheet.create({
 | confirmButtonTextStyle | `object` | Confirm button text style    | -       |
 
 ## Tests
-For automated tests, use data-testid='awesome-alert-cancel-btn' and data-testID='awesome-alert-confirm-btn' properties for the cancel and confirm buttons, respectively
+For automated tests, buttons default to data-testid='awesome-alert-cancel-btn' and data-testID='awesome-alert-confirm-btn' 
+properties for the cancel and confirm buttons, respectively.  However, feel free to pass in your own via the props.
 
 ## Inspiration
 
