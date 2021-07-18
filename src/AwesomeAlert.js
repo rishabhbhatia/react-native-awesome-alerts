@@ -276,6 +276,6 @@ AwesomeAlert.defaultProps = {
   confirmButtonColor: '#AEDEF4',
   customView: null,
   modalProps: {},
-  confirmButtonTestID: 'awesome-alert-confirm-btn',
-  cancelButtonTestID: 'awesome-alert-cancel-btn'
+  cancelButtonTestID: 'awesome-alert-cancel-btn',
+  confirmButtonTestID: 'awesome-alert-confirm-btn'
 };
