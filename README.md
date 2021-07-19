@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
 | customView               | `object`  | Custom view to render inside alert             | null    |
 | modalProps               | `object`  | Additional props to pass for Modal             | -       |
 | confirmButtonTestID      | `string`  | Confirm button testID                          | awesome-alert-confirm-btn|
-| cancelButtonTestID       | `string`  | Confirm button testID                          | awesome-alert-cancel-btn|
+| cancelButtonTestID       | `string`  | Cancel button testID                          | awesome-alert-cancel-btn|
 
 #### Styling
 
