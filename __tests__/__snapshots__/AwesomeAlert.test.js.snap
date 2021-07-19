@@ -54,7 +54,7 @@ exports[`renders correctly 1`] = `
           "padding": 10,
           "transform": Array [
             Object {
-              "scale": 0.30011885774268954,
+              "scale": 0.30000000000000004,
             },
           ],
         }
@@ -124,7 +124,6 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={false}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -137,6 +136,7 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="awesome-alert-cancel-btn"
         >
           <View
             style={
@@ -172,7 +172,6 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={false}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -185,6 +184,7 @@ exports[`renders correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="awesome-alert-confirm-btn"
         >
           <View
             style={
