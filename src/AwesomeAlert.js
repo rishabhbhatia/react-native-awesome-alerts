@@ -94,6 +94,7 @@ export default class AwesomeAlert extends Component {
 
   _renderButton = (data) => {
     const {
+      testID,
       text,
       backgroundColor,
       buttonStyle,
@@ -102,7 +103,7 @@ export default class AwesomeAlert extends Component {
     } = data;
 
     return (
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity testID={testID} onPress={onPress}>
         <View style={[styles.button, { backgroundColor }, buttonStyle]}>
           <Text style={[styles.buttonText, buttonTextStyle]}>{text}</Text>
         </View>
@@ -123,6 +124,7 @@ export default class AwesomeAlert extends Component {
       cancelButtonStyle,
       cancelButtonTextStyle,
       onCancelPressed,
+      cancelButtonTestID
     } = this.props;
 
     const {
@@ -132,6 +134,7 @@ export default class AwesomeAlert extends Component {
       confirmButtonStyle,
       confirmButtonTextStyle,
       onConfirmPressed,
+      confirmButtonTestID
     } = this.props;
 
     const {
@@ -147,6 +150,7 @@ export default class AwesomeAlert extends Component {
     } = this.props;
 
     const cancelButtonData = {
+      testID: cancelButtonTestID,
       text: cancelText,
       backgroundColor: cancelButtonColor,
       buttonStyle: cancelButtonStyle,
@@ -155,6 +159,7 @@ export default class AwesomeAlert extends Component {
     };
 
     const confirmButtonData = {
+      testID: confirmButtonTestID,
       text: confirmText,
       backgroundColor: confirmButtonColor,
       buttonStyle: confirmButtonStyle,
@@ -252,6 +257,8 @@ AwesomeAlert.propTypes = {
     PropTypes.func,
   ]),
   modalProps: PropTypes.object,
+  cancelButtonTestID: PropTypes.string,
+  confirmButtonTestID: PropTypes.string
 };
 
 AwesomeAlert.defaultProps = {
@@ -269,4 +276,6 @@ AwesomeAlert.defaultProps = {
   confirmButtonColor: '#AEDEF4',
   customView: null,
   modalProps: {},
+  cancelButtonTestID: 'awesome-alert-cancel-btn',
+  confirmButtonTestID: 'awesome-alert-confirm-btn'
 };
