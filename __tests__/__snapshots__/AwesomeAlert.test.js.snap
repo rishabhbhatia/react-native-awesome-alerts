@@ -133,41 +133,29 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "#D0D0D0",
+              "borderRadius": 5,
+              "margin": 5,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingVertical": 7,
             }
           }
           testID="awesome-alert-cancel-btn"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "borderRadius": 5,
-                  "margin": 5,
-                  "paddingHorizontal": 10,
-                  "paddingVertical": 7,
-                },
-                Object {
-                  "backgroundColor": "#D0D0D0",
+                  "color": "#fff",
+                  "fontSize": 13,
                 },
                 undefined,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 13,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              Dismiss
-            </Text>
-          </View>
+            Dismiss
+          </Text>
         </View>
         <View
           accessible={true}
@@ -181,41 +169,29 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "backgroundColor": "#AEDEF4",
+              "borderRadius": 5,
+              "margin": 5,
               "opacity": 1,
+              "paddingHorizontal": 10,
+              "paddingVertical": 7,
             }
           }
           testID="awesome-alert-confirm-btn"
         >
-          <View
+          <Text
             style={
               Array [
                 Object {
-                  "borderRadius": 5,
-                  "margin": 5,
-                  "paddingHorizontal": 10,
-                  "paddingVertical": 7,
-                },
-                Object {
-                  "backgroundColor": "#AEDEF4",
+                  "color": "#fff",
+                  "fontSize": 13,
                 },
                 undefined,
               ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#fff",
-                    "fontSize": 13,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              Confirm
-            </Text>
-          </View>
+            Confirm
+          </Text>
         </View>
       </View>
     </View>

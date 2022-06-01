@@ -1,6 +1,6 @@
 {
   "name": "react-native-awesome-alerts",
-  "version": "1.5.2",
+  "version": "2.0",
   "description": "Awesome alert for React Native iOS, android and web",
   "main": "index.js",
   "types": "index.d.ts",
