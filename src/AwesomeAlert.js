@@ -84,7 +84,9 @@ export default class AwesomeAlert extends Component {
 
   _onTapOutside = () => {
     const { closeOnTouchOutside } = this.props;
-    if (closeOnTouchOutside) this._springHide();
+    if (closeOnTouchOutside) {
+      this.props.onCancelPressed && this.props.onCancelPressed();
+    }
   };
 
   _onDismiss = () => {
