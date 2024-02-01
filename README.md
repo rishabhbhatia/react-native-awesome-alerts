@@ -73,6 +73,7 @@ export default class App extends React.Component {
           cancelText="No, cancel"
           confirmText="Yes, delete it"
           confirmButtonColor="#DD6B55"
+          contentContainerColor="#F8F8F8"
           onCancelPressed={() => {
             this.hideAlert();
           }}
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
 | actionContainerStyle   | `object` | Action container style       | -       |
 | cancelButtonColor      | `string` | Background color             | #D0D0D0 |
 | confirmButtonColor     | `string` | Background color             | #AEDEF4 |
+| contentContainerColor     | `string` | Background color             | #FFFFFF |
 | cancelButtonStyle      | `object` | Cancel button style          | -       |
 | cancelButtonTextStyle  | `object` | Cancel button text style     | -       |
 | confirmButtonStyle     | `object` | Confirm button style         | -       |

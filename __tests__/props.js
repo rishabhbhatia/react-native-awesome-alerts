@@ -10,6 +10,7 @@ const cancelText = "Dismiss";
 const confirmText = "Confirm";
 const cancelButtonColor = "#D0D0D0";
 const confirmButtonColor = "#AEDEF4";
+const contentContainerColor = "white"
 
 const props = {
   show,
@@ -23,7 +24,8 @@ const props = {
   cancelText,
   confirmText,
   cancelButtonColor,
-  confirmButtonColor
+  confirmButtonColor,
+  contentContainerColor
 };
 
 export default props;

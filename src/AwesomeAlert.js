@@ -137,6 +137,7 @@ export default class AwesomeAlert extends Component {
 
     const {
       alertContainerStyle,
+      contentContainerColor,
       overlayStyle,
       progressSize,
       progressColor,
@@ -156,6 +157,10 @@ export default class AwesomeAlert extends Component {
       onPress: onCancelPressed,
     };
 
+    const containerBackground = {
+      backgroundColor: contentContainerColor,
+    };
+
     const confirmButtonData = {
       testID: confirmButtonTestID,
       text: confirmText,
@@ -168,10 +173,10 @@ export default class AwesomeAlert extends Component {
     return (
       <View style={[styles.container, alertContainerStyle]}>
         <TouchableWithoutFeedback onPress={this._onTapOutside}>
-          <View style={[styles.overlay, overlayStyle]} />
+            <View style={[styles.overlay, overlayStyle]} />
         </TouchableWithoutFeedback>
         <Animated.View
-          style={[styles.contentContainer, animation, contentContainerStyle]}
+          style={[styles.contentContainer, animation, contentContainerStyle, containerBackground]}
         >
           <View style={[styles.content, contentStyle]}>
             {showProgress ? (
@@ -245,6 +250,7 @@ AwesomeAlert.propTypes = {
   showConfirmButton: PropTypes.bool,
   cancelText: PropTypes.string,
   confirmText: PropTypes.string,
+  contentContainerColor: PropTypes.string,
   cancelButtonColor: PropTypes.string,
   confirmButtonColor: PropTypes.string,
   onCancelPressed: PropTypes.func,
@@ -272,6 +278,7 @@ AwesomeAlert.defaultProps = {
   confirmText: 'Confirm',
   cancelButtonColor: '#D0D0D0',
   confirmButtonColor: '#AEDEF4',
+  contentContainerColor: "#FFFFFF",
   customView: null,
   modalProps: {},
   cancelButtonTestID: 'awesome-alert-cancel-btn',
