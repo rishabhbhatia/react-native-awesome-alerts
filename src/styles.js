@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   contentContainer: {
     maxWidth: '80%',
     borderRadius: 5,
-    backgroundColor: 'white',
     padding: 10
   },
   content: {
