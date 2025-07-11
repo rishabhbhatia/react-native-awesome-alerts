@@ -23,18 +23,22 @@ const { OS } = Platform;
 export default class AwesomeAlert extends Component {
   constructor(props) {
     super(props);
+    this.backHandlerSubscription = null;
     const { show } = this.props;
     this.springValue = new Animated.Value(props.animatedValue);
 
-    this.state = {
-      showSelf: false,
-    };
+   this.state = {
+  showSelf: props.show,
+};
 
     if (show) this._springShow(true);
   }
 
   componentDidMount() {
-    HwBackHandler.addEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
+    this.backHandlerSubscription = HwBackHandler.addEventListener(
+        HW_BACK_EVENT,
+        this._handleHwBackEvent
+    );
   }
 
   _springShow = (fromConstructor) => {
@@ -103,9 +107,9 @@ export default class AwesomeAlert extends Component {
     } = data;
 
     return (
-      <TouchableOpacity  style={[styles.button, { backgroundColor }, buttonStyle]} testID={testID} onPress={onPress}>
+        <TouchableOpacity  style={[styles.button, { backgroundColor }, buttonStyle]} testID={testID} onPress={onPress}>
           <Text style={[styles.buttonText, buttonTextStyle]}>{text}</Text>
-      </TouchableOpacity>
+        </TouchableOpacity>
     );
   };
 
@@ -166,31 +170,31 @@ export default class AwesomeAlert extends Component {
     };
 
     return (
-      <View style={[styles.container, alertContainerStyle]}>
-        <TouchableWithoutFeedback onPress={this._onTapOutside}>
-          <View style={[styles.overlay, overlayStyle]} />
-        </TouchableWithoutFeedback>
-        <Animated.View
-          style={[styles.contentContainer, animation, contentContainerStyle]}
-        >
-          <View style={[styles.content, contentStyle]}>
-            {showProgress ? (
-              <ActivityIndicator size={progressSize} color={progressColor} />
-            ) : null}
-            {title ? (
-              <Text style={[styles.title, titleStyle]}>{title}</Text>
-            ) : null}
-            {message ? (
-              <Text style={[styles.message, messageStyle]}>{message}</Text>
-            ) : null}
-            {customView}
-          </View>
-          <View style={[styles.action, actionContainerStyle]}>
-            {showCancelButton ? this._renderButton(cancelButtonData) : null}
-            {showConfirmButton ? this._renderButton(confirmButtonData) : null}
-          </View>
-        </Animated.View>
-      </View>
+        <View style={[styles.container, alertContainerStyle]}>
+          <TouchableWithoutFeedback onPress={this._onTapOutside}>
+            <View style={[styles.overlay, overlayStyle]} />
+          </TouchableWithoutFeedback>
+          <Animated.View
+              style={[styles.contentContainer, animation, contentContainerStyle]}
+          >
+            <View style={[styles.content, contentStyle]}>
+              {showProgress ? (
+                  <ActivityIndicator size={progressSize} color={progressColor} />
+              ) : null}
+              {title ? (
+                  <Text style={[styles.title, titleStyle]}>{title}</Text>
+              ) : null}
+              {message ? (
+                  <Text style={[styles.message, messageStyle]}>{message}</Text>
+              ) : null}
+              {customView}
+            </View>
+            <View style={[styles.action, actionContainerStyle]}>
+              {showCancelButton ? this._renderButton(cancelButtonData) : null}
+              {showConfirmButton ? this._renderButton(confirmButtonData) : null}
+            </View>
+          </Animated.View>
+        </View>
     );
   };
 
@@ -201,22 +205,22 @@ export default class AwesomeAlert extends Component {
     const wrapInModal = OS === 'android' || OS === 'ios';
 
     return showSelf ?
-      wrapInModal ? (
-        <Modal
-          animationType="none"
-          transparent={true}
-          visible={show}
-          onRequestClose={() => {
-            if (showSelf && closeOnHardwareBackPress) {
-              this._springHide();
-            }
-          }}
-          {...modalProps}
-        >
-          {this._renderAlert()}
-        </Modal>
-      ) : this._renderAlert()
-    : null;
+        wrapInModal ? (
+            <Modal
+                animationType="none"
+                transparent={true}
+                visible={show}
+                onRequestClose={() => {
+                  if (showSelf && closeOnHardwareBackPress) {
+                    this._springHide();
+                  }
+                }}
+                {...modalProps}
+            >
+              {this._renderAlert()}
+            </Modal>
+        ) : this._renderAlert()
+        : null;
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -228,8 +232,9 @@ export default class AwesomeAlert extends Component {
   }
 
   componentWillUnmount() {
-    HwBackHandler.removeEventListener(HW_BACK_EVENT, this._handleHwBackEvent);
+    this.backHandlerSubscription?.remove();
   }
+
 }
 
 AwesomeAlert.propTypes = {
